@@ -1,6 +1,7 @@
 <?php
 require_once '../src/Google_Client.php';
 require_once '../src/contrib/Google_CalendarService.php';
+require_once 'lib/calendar.php';
 session_start();
 
 $client = new Google_Client();
@@ -30,7 +31,7 @@ if (isset($_SESSION['token'])) {
 
 if ($client->getAccessToken()) {
 
-	$classCal = $cal->calendars->get("uhqfb67gk3di9696tht4rrshug@group.calendar.google.com");
+	$classCal = $cal->calendars->get(getClassCalendarID());
 
 	$events = $cal->events->listEvents('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com');
 
