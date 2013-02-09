@@ -34,10 +34,10 @@ if (isset($_SESSION['token'])) {
 
 if ($client->getAccessToken()) {
 
-	$classCal = $cal->calendars->get(getClassCalendarID());
+	//$classCal = $cal->calendars->get(getClassCalendarID());
 
-	$events = $cal->events->listEvents('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com');
-
+	//$events = $cal->events->listEvents('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com');
+/*
 	while(true) {
 	  foreach ($events->getItems() as $event) {
 	    echo $event->getSummary();
@@ -50,9 +50,9 @@ if ($client->getAccessToken()) {
 	    break;
 	  }
 	} 
+*/
 
-
-	print "<h1>SS12 Calendar List</h1><pre>" . print_r($classCal, true) . "</pre>";
+	//print "<h1>SS12 Calendar List</h1><pre>" . print_r($classCal, true) . "</pre>";
 
 	$calList = $cal->calendarList->listCalendarList();
 	print "<h1>Calendar List</h1><pre>" . print_r($calList, true) . "</pre>";
