@@ -4,6 +4,7 @@ require_once '../src/contrib/Google_CalendarService.php';
 session_start();
 
 $client = new Google_Client();
+$client->setUseObjects(true); 
 $client->setApplicationName("Google Calendar PHP Starter Application");
 
 // Visit https://code.google.com/apis/console?api=calendar to generate your
@@ -33,23 +34,19 @@ if ($client->getAccessToken()) {
 
 	$events = $cal->events->listEvents('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com');
 
-	print "<h1>Events Listt</h1><pre>" . print_r($events, true) . "</pre>";
+	while(true) {
+	  foreach ($events->getItems() as $event) {
+	    echo $event->getSummary();
+	  }
+	  $pageToken = $events->getNextPageToken();
+	  if ($pageToken) {
+	    $optParams = array('pageToken' => $pageToken);
+	    $events = $service->events->listEvents('primary', $optParams);
+	  } else {
+	    break;
+	  }
+	} 
 
-
-/*
-while(true) {
-  foreach ($events->getItems() as $event) {
-    echo $event->getSummary();
-  }
-  $pageToken = $events->getNextPageToken();
-  if ($pageToken) {
-    $optParams = array('pageToken' => $pageToken);
-    $events = $service->events->listEvents('primary', $optParams);
-  } else {
-    break;
-  }
-} 
-*/
 
 	print "<h1>SS12 Calendar List</h1><pre>" . print_r($classCal, true) . "</pre>";
 
