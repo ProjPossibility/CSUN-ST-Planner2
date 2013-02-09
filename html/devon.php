@@ -8,6 +8,7 @@ require_once '../../src/contrib/Google_CalendarService.php';
 session_start();
 
 $client = new Google_Client();
+$client->setUseObjects(true); 
 $client->setApplicationName("Google Calendar PHP Starter Application");
 $service = new Google_CalendarService($client);
 
@@ -40,19 +41,24 @@ if ($client->getAccessToken()) {
 	$event->setSummary('Appointment');
 	$event->setLocation('Somewhere');
 	$start = new Google_EventDateTime();
-	$start->setDateTime('2013-02-10T10:00:00.000-07:00');
+	$start->setDateTime('2013-02-11T10:00:00.000-07:00');
 	$event->setStart($start);
 	$end = new Google_EventDateTime();
-	$end->setDateTime('2013-02-10T10:25:00.000-07:00');
+	$end->setDateTime('2013-02-11T10:25:00.000-07:00');
 	$event->setEnd($end);
-	//$attendee1 = new Google_EventAttendee();
-	//$attendee1->setEmail('attendeeEmail');
-	// ...
-	/*$attendees = array($attendee1,
-					   // ...
-					  );
-	$event->attendees = $attendees;*/
+	
 	$createdEvent = $service->events->insert('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com', $event);
+	
+	
+	// First retrieve the event from the API.
+	$event = $service->events->get('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com', $createdEvent->getId());
+
+	$event->setSummary('Appointment at Somewhere');
+
+	$updatedEvent = $service->events->update('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com', $event->getId(), $event);
+
+	// Print the updated date.
+	echo $updatedEvent->getUpdated();
 
 	echo $createdEvent->getId();
 $_SESSION['token'] = $client->getAccessToken();
