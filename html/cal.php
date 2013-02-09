@@ -28,11 +28,15 @@ if (isset($_SESSION['token'])) {
 }
 
 if ($client->getAccessToken()) {
-  $calList = $cal->calendarList->listCalendarList();
-  print "<h1>Calendar List</h1><pre>" . print_r($calList, true) . "</pre>";
 
+	$classCal = $cal->calendars->get("uhqfb67gk3di9696tht4rrshug@group.calendar.google.com");
 
-$_SESSION['token'] = $client->getAccessToken();
+	print "<h1>SS12 Calendar List</h1><pre>" . print_r($classCal, true) . "</pre>";
+
+	$calList = $cal->calendarList->listCalendarList();
+	print "<h1>Calendar List</h1><pre>" . print_r($calList, true) . "</pre>";
+
+	$_SESSION['token'] = $client->getAccessToken();
 } else {
   $authUrl = $client->createAuthUrl();
   print "<a class='login' href='$authUrl'>Connect Me!</a>";
