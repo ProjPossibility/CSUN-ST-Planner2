@@ -5,11 +5,15 @@
 	$subtitle = "Student View";
 	
 	require($prefix."/includes/vars.php");	
+	
+
+	session_start();
+
 	require($prefix."/includes/head.php");
 
 	$client = new Google_Client();
-$client->setUseObjects(true); 
-$client->setApplicationName("Google Calendar PHP Starter Application");
+	$client->setUseObjects(true); 
+	$client->setApplicationName("Google Calendar PHP Starter Application");
 
 // Visit https://code.google.com/apis/console?api=calendar to generate your
 // client id, client secret, and to register your redirect uri.
