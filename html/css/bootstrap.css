@@ -222,7 +222,7 @@ textarea {
   }
 }
 body {
-  margin: 5%;
+  margin: 25em;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
@@ -6156,16 +6156,3 @@ a.badge:focus {
 .affix {
   position: fixed;
 }
-
-div.task{
-    background-color:#fff86a;
-}
-.page{
-	padding: 10px 20px 20px 20px;
-	border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -moz-box-shadow: 0px 0px 10px #d3d3d3; 
-	-webkit-box-shadow: 0px 2px 10px #d3d3d3; 
-	box-shadow: 0px 0px 10px #d3d3d3; 
-	}
