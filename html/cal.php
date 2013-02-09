@@ -1,10 +1,13 @@
-<?php
-require_once '../src/Google_Client.php';
-require_once '../src/contrib/Google_CalendarService.php';
-require_once 'lib/calendar.php';
-session_start();
+<?php 
+	$prefix = ".";
+	$section = "root";
+	$page = "student_task";
+	$subtitle = "Student View";
+	
+	require($prefix."/includes/vars.php");	
+	require($prefix."/includes/head.php");
 
-$client = new Google_Client();
+	$client = new Google_Client();
 $client->setUseObjects(true); 
 $client->setApplicationName("Google Calendar PHP Starter Application");
 
@@ -59,4 +62,11 @@ if ($client->getAccessToken()) {
   $authUrl = $client->createAuthUrl();
   print "<a class='login' href='$authUrl'>Connect Me!</a>";
 }
+
+?>	
+
+This is a page
+
+<?php
+	require($prefix."/includes/foot.php");
 ?>
