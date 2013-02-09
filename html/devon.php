@@ -1,14 +1,15 @@
 <?php
 $prefix = ".";
-//require_once '../../src/Google_Client.php';
-//require_once '../../src/contrib/Google_CalendarService.php';
-require($prefix."/includes/vars.php");	
-require($prefix."/includes/head.php");
+require_once '../../src/Google_Client.php';
+require_once '../../src/contrib/Google_CalendarService.php';
+//require($prefix."/includes/vars.php");	
+//require($prefix."/includes/head.php");
 
 session_start();
 
 $client = new Google_Client();
 $client->setApplicationName("Google Calendar PHP Starter Application");
+$service = new Google_CalendarService($client);
 
 // Visit https://code.google.com/apis/console?api=calendar to generate your
 // client id, client secret, and to register your redirect uri.
@@ -35,7 +36,25 @@ if ($client->getAccessToken()) {
   $calList = $cal->calendarList->listCalendarList();
   print "<h1>Calendar List</h1><pre>" . print_r($calList, true) . "</pre>";
 
+	$event = new Google_Event();
+	$event->setSummary('Appointment');
+	$event->setLocation('Somewhere');
+	$start = new Google_EventDateTime();
+	$start->setDateTime('2013-02-10T10:00:00.000-07:00');
+	$event->setStart($start);
+	$end = new Google_EventDateTime();
+	$end->setDateTime('2013-02-10T10:25:00.000-07:00');
+	$event->setEnd($end);
+	//$attendee1 = new Google_EventAttendee();
+	//$attendee1->setEmail('attendeeEmail');
+	// ...
+	/*$attendees = array($attendee1,
+					   // ...
+					  );
+	$event->attendees = $attendees;*/
+	$createdEvent = $service->events->insert('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com', $event);
 
+	echo $createdEvent->getId();
 $_SESSION['token'] = $client->getAccessToken();
 } else {
   $authUrl = $client->createAuthUrl();
