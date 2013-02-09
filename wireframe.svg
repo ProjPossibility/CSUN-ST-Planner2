@@ -38,7 +38,7 @@
        x2="251.42857"
        y2="590.93359"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.79625274,0,0,0.79625274,-35.611444,300.89958)" />
+       gradientTransform="matrix(1.2638548,0,0,1.2638548,-66.27131,276.95854)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient3781-0"
@@ -59,16 +59,6 @@
          offset="1"
          id="stop3785-4" />
     </linearGradient>
-    <linearGradient
-       gradientTransform="matrix(1.4655666,0,0,1.4655666,-121.5995,164.51614)"
-       y2="590.93359"
-       x2="251.42857"
-       y1="539.50507"
-       x1="248.57143"
-       gradientUnits="userSpaceOnUse"
-       id="linearGradient3833"
-       xlink:href="#linearGradient3781-0"
-       inkscape:collect="always" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient3781-0"
@@ -110,7 +100,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.70910507"
      inkscape:cx="607.55028"
-     inkscape:cy="696.64663"
+     inkscape:cy="333.28911"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -130,7 +120,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -211,41 +201,22 @@
     <rect
        style="color:#000000;fill:url(#linearGradient3787);fill-opacity:1;stroke:none;stroke-width:3;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        id="rect3779"
-       width="156.97554"
-       height="43.225147"
-       x="75.863945"
-       y="727.0694"
-       ry="13.650046" />
+       width="249.15994"
+       height="68.609253"
+       x="110.66837"
+       y="953.39795"
+       ry="21.66608" />
     <text
        xml:space="preserve"
-       style="font-size:28.66509819px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
-       x="88.875481"
-       y="757.09955"
+       style="font-size:45.49877167px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
+       x="131.32095"
+       y="1001.0634"
        id="text3789"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3791"
-         x="88.875481"
-         y="757.09955">Complete</tspan></text>
-    <rect
-       style="color:#000000;fill:url(#linearGradient3833);fill-opacity:1;stroke:none;stroke-width:3;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       id="rect3779-8"
-       width="288.92599"
-       height="79.559334"
-       x="83.579826"
-       y="948.91565"
-       ry="25.123999" />
-    <text
-       xml:space="preserve"
-       style="font-size:52.76040268px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
-       x="107.52859"
-       y="1004.1885"
-       id="text3789-8"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3791-2"
-         x="107.52859"
-         y="1004.1885">Complete</tspan></text>
+         x="131.32095"
+         y="1001.0634">Complete</tspan></text>
     <rect
        rx="0"
        ry="25.123999"
@@ -371,15 +342,6 @@
          x="475.61731"
          y="908.11328">Due Date</tspan></text>
     <rect
-       rx="0"
-       ry="18.449503"
-       y="476.88434"
-       x="852.8808"
-       height="140.33244"
-       width="348.0762"
-       id="rect3858-7"
-       style="color:#000000;fill:#cbcbcb;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <rect
        ry="0"
        y="355.73349"
        x="852.8808"
@@ -409,81 +371,6 @@
          x="865.97095"
          id="tspan3872-1"
          sodipodi:role="line">description</tspan></text>
-    <text
-       sodipodi:linespacing="125%"
-       id="text3874-4"
-       y="522.38452"
-       x="866.53082"
-       style="font-size:28.66509819px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
-       xml:space="preserve"><tspan
-         y="522.38452"
-         x="866.53082"
-         id="tspan3876-2"
-         sodipodi:role="line">Milestone 1</tspan><tspan
-         id="tspan3878-3"
-         y="558.21588"
-         x="866.53082"
-         sodipodi:role="line">Title</tspan><tspan
-         y="594.04724"
-         x="866.53082"
-         sodipodi:role="line"
-         id="tspan3898-2">Discription</tspan></text>
-    <rect
-       style="color:#000000;fill:#cbcbcb;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       id="rect4047"
-       width="348.0762"
-       height="140.33244"
-       x="852.8808"
-       y="636.88434"
-       ry="18.449503"
-       rx="0" />
-    <text
-       xml:space="preserve"
-       style="font-size:28.66509819px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
-       x="866.53082"
-       y="682.38452"
-       id="text4049"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4051"
-         x="866.53082"
-         y="682.38452">Milestone 2</tspan><tspan
-         sodipodi:role="line"
-         x="866.53082"
-         y="718.21588"
-         id="tspan4053">Title</tspan><tspan
-         id="tspan4055"
-         sodipodi:role="line"
-         x="866.53082"
-         y="754.04724">Discription</tspan></text>
-    <rect
-       rx="0"
-       ry="18.449503"
-       y="796.88434"
-       x="852.8808"
-       height="140.33244"
-       width="348.0762"
-       id="rect4057"
-       style="color:#000000;fill:#cbcbcb;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-    <text
-       sodipodi:linespacing="125%"
-       id="text4059"
-       y="842.38452"
-       x="866.53082"
-       style="font-size:28.66509819px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
-       xml:space="preserve"><tspan
-         y="842.38452"
-         x="866.53082"
-         id="tspan4061"
-         sodipodi:role="line">Milestone 3</tspan><tspan
-         id="tspan4063"
-         y="878.21588"
-         x="866.53082"
-         sodipodi:role="line">Title</tspan><tspan
-         y="914.04724"
-         x="866.53082"
-         sodipodi:role="line"
-         id="tspan4065">Discription</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:28.66509819px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
@@ -548,5 +435,81 @@
          x="855.61731"
          id="tspan4095"
          sodipodi:role="line">Overview</tspan></text>
+    <rect
+       rx="0"
+       ry="25.123999"
+       y="468.87289"
+       x="854.01831"
+       height="191.10066"
+       width="348.0762"
+       id="rect3858-1"
+       style="color:#000000;fill:#cbcbcb;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3874-7"
+       y="514.37305"
+       x="867.66833"
+       style="font-size:28.66509819px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
+       xml:space="preserve"><tspan
+         y="514.37305"
+         x="867.66833"
+         id="tspan3876-4"
+         sodipodi:role="line">Milestone 1</tspan><tspan
+         id="tspan3878-0"
+         y="550.20441"
+         x="867.66833"
+         sodipodi:role="line">Title</tspan><tspan
+         id="tspan3880-9"
+         y="586.03577"
+         x="867.66833"
+         sodipodi:role="line">Discription</tspan><tspan
+         y="621.86719"
+         x="867.66833"
+         sodipodi:role="line"
+         id="tspan3898-4">Due Date</tspan></text>
+    <rect
+       style="color:#000000;fill:#cbcbcb;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3108"
+       width="348.0762"
+       height="191.10066"
+       x="854.01831"
+       y="688.87292"
+       ry="25.123999"
+       rx="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:28.66509819px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
+       x="867.66833"
+       y="734.37305"
+       id="text3110"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3112"
+         x="867.66833"
+         y="734.37305">Milestone 2</tspan><tspan
+         sodipodi:role="line"
+         x="867.66833"
+         y="770.20441"
+         id="tspan3114">Title</tspan><tspan
+         sodipodi:role="line"
+         x="867.66833"
+         y="806.03577"
+         id="tspan3116">Discription</tspan><tspan
+         id="tspan3118"
+         sodipodi:role="line"
+         x="867.66833"
+         y="841.86719">Due Date</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:NewBskvll BT;-inkscape-font-specification:NewBskvll BT Bold"
+       x="1077.4144"
+       y="433.27197"
+       id="text3120"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3122"
+         x="1077.4144"
+         y="433.27197"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">colapsable?</tspan></text>
   </g>
 </svg>
