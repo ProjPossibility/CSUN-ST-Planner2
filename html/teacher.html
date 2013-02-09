@@ -1,32 +1,67 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Add Milestones</title>
+    <title>Add tasks and milestones</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
   </head>
   <body>
 	<div class="page">
-		<div class="task">
-			<h1>Milestone 1</h1>
-			<p>Title:     [summary]</p>
-			<p>[description]</p>
-			<p>Due Date:  [end.date]</p>
-			<p class="text-muted">Time left: [timeleft]</p>
+			<h1>Main Task</h1>
+			<form class="form-horizontal">
+			 <label class="control-label">Title:</label>
+			 <div class="controls">
+			 <input type="text" placeholder="What would you like to call this?">
+			 </div>
+			 <label class="control-label">Due Date:</label>
+			<div class="controls">
+			<input type="date" placeholder="What date will this be due?">
+			</div>
+			<label class="control-label">Description:</label>
+			<div class="controls">
+			<textarea rows="3"></textarea>
+			</div>
+				<div class="task">
+		<form class="form-horizontal">
+			<h2>Milestone 1</h2>
+			 <label class="control-label">Title:</label>
+			 <div class="controls">
+			 <input type="text" placeholder="What would you like to call this?">
+			 </div>
+			 <label class="control-label">Due Date:</label>
+			<div class="controls">
+			<input type="date" placeholder="What date will this be due?">
+			</div>
+			<label class="control-label">Description:</label>
+			<div class="controls">
+			<textarea rows="3"></textarea>
+			</div>
+		</form>
 		</div>
 		<div class="task">
-			<h1>Milestone 2</h1>
-			<p>Title:  [summary]</p>
-			<p>[description]</p>
-			<p>Due Date:  [end.date]</p>
-			<p class="text-muted">Time left: [timeleft]</p>
+		<form class="form-horizontal">
+			<h2>Milestone 2</h2>
+			 <label class="control-label">Title:</label>
+			 <div class="controls">
+			 <input type="text" placeholder="What would you like to call this?">
+			 </div>
+			 <label class="control-label">Due Date:</label>
+			<div class="controls">
+			<input type="date" placeholder="What date will this be due?">
+			</div>
+			<label class="control-label">Description:</label>
+			<div class="controls">
+			<textarea rows="3"></textarea>
+			</div>
 		</div>
+		</form>
 		
 		<button type="button" class="btn btn-large btn-success">Create</button>
-	
+	</div>
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+	</div>
 	</div>
   </body>
 </html>
