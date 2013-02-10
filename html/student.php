@@ -32,21 +32,44 @@
 					'singleEvents' => "true",
 					);
 
-		//-- Get all the events for the selected class calendar
-		$eventsOjb = $cal->events->listEvents($class_calendar_id,$optParams);
+		$event_id = (isset($_GET['event_id']))?$_GET['event_id']:0;
+		$event_id = (isset($_POST['event_id']))?$_POST['event_id']:$event_id ;
 
-		//-- Get an array of Event
-		$event = $eventsOjb->getItems();
+		if ($event_id) {
+			//-- Get Data on a specific Event
+
+			$event = $cal->events->get($class_calendar_id, $event_id);
+
+		} else {
+			//-- Get data of event due soonest
+
+			//-- Get all the events for the selected class calendar
+			$eventsOjb = $cal->events->listEvents($class_calendar_id);
+
+			/*
+			print_r("<pre>");
+			print_r($eventsOjb);
+			print_r("</pre>");
+			*/
+			
+
+			//-- Get an array of Event
+			$events = $eventsOjb->getItems();
+			$event = $events[0];
+
+		}
+
+		
 		
 		//-- Set Page Data
-		$id = $event[0]->getId();
-		$summary = $event[0]->getSummary();
-		$eTag =  $event[0]->getEtag();
-		$description = $event[0]->getDescription();
-		$startDateObj = $event[0]->getStart();
+		$event_id = $event->getId();
+		$summary = $event->getSummary();
+		$eTag =  $event->getEtag();
+		$description = $event->getDescription();
+		$startDateObj = $event->getStart();
 		$dueDate = $startDateObj->getDateTime();
-		$timeLeft = $event[0]->getStart();
-		$htmlLink =  $event[0]->getHtmlLink();
+		$timeLeft = $event->getStart();
+		$htmlLink =  $event->getHtmlLink();
 
 		/*
 		print_r("<pre>");
@@ -81,7 +104,7 @@
 		
 		<form name="input" action="student.do.php" method="post">
 			
-			<input type="hidden" name="event_id" value="<?php echo isset($id)?htmlspecialchars($id):'';?>">
+			<input type="hidden" name="event_id" value="<?php echo isset($event_id)?htmlspecialchars($event_id):'';?>">
 			<input type="hidden" name="eTag" value="<?php echo isset($eTag)?htmlspecialchars($eTag):'';?>">
 
 			<div class="form-actions">
