@@ -8,7 +8,6 @@ require_once($prefix."/includes/vars.php");
 ----------------------------------*/
 $data['id'] = "got from post";
 
-$errors[][] = "errors";
 
 if(isset($errors)) {
 	include('student.php');

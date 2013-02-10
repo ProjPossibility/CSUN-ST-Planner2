@@ -56,7 +56,15 @@
 
 
 
-		?>
+		?>	
+
+		<?php if(isset($errors)) {?>
+		<div class="alert alert-error">
+			<p><b>Alert:</b> Please address the following issues:</p>
+			<?php if(isset($errors)) {displayAllErrors($errors);}?>
+		</div>
+		<?php } ?>
+
 
 		<h1>Task: <?php echo $summary; ?></h1>
 	 	<input type="hidden" name="event_id" value="<?php echo isset($id)?htmlspecialchars($id):'';?>">
