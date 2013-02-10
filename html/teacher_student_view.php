@@ -2,7 +2,7 @@
 	$prefix = ".";
 	$section = "root";
 	$page = "teacher_student_view";
-	$subtitle = "Teacher Student View";
+	$subtitle = "Teacher-Student View";
 	
 	require($prefix."/includes/vars.php");	
 	require($prefix."/includes/head.php");
@@ -42,13 +42,35 @@
 		$eventsObj = $cal->events->listEvents($class_calendar_id, $optParams);
 
 		
-?>
-			<h1>Student Overview</h1>
-			<form class="form-horizontal" name="teacher_student_view" action="teacher_add_task.php" method="post">
-			<label class="control-label">Milestones:</label>
-			<input type="text" id="milestones" class="input-mini" name="milestones" placeholder="#">
-			<input type="submit" id="create" name="create" class="btn btn-large" value="Add new task">
-			</form>
+?>			<h2>Add New Project</h2>
+			<form class="form-inline" name="teacher_student_view" action="teacher_add_task.php" method="post">
+	        <fieldset>
+		        <div class="control-group">
+	            <div class="controls">
+	              <select id="milestones" name="milestones">
+	              	<option value="0">-- Number of Milestones --</option>
+	                <option>1</option>
+	                <option>2</option>
+	                <option>3</option>
+	                <option>4</option>
+	                <option>5</option>
+	                <option>6</option>
+	                <option>7</option>
+	                <option>8</option>
+	                <option>9</option>
+	              </select>
+	     
+	            <button type="submit" class="btn btn-primary">Start New Project</button>
+	  
+	         
+	            </div>
+	          </div>
+	          
+	          
+	        </fieldset>
+	      </form>
+
+			<h2>Student Overview</h2>
 	        <table class="table table-bordered table-striped table-hover">
 	            <thead>
 	                <tr>
