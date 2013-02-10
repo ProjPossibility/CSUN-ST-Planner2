@@ -1,4 +1,4 @@
-<?
+<?php
 $prefix = ".";
 
 require_once($prefix."/includes/vars.php");
