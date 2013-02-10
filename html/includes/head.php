@@ -17,25 +17,26 @@
    	
 		<div class="page" style="max-width:750px;">
 
-			<div class="navbar">
-				<div class="navbar-inner">
-					<div class="container" style="width: auto;">
-						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						</a>
-						<a class="brand" href="#">CSUN-ST-Planner2</a>
-						<div class="nav-collapse">
-							<ul class="nav">
-								<li><a href="teacher.php">Teacher</a></li>
-								<li><a href="student.php">Student</a></li>
-							</ul>
-							<ul class="nav pull-right">
-								<li class="divider-vertical"></li>
-								<li><a href="http://projectpossibility.org/" target="_blank">Project:Possibility</a></li>
-							</ul>
-						</div><!-- /.nav-collapse -->
-					</div>
-				</div><!-- /navbar-inner -->
-			</div>
+			<nav role="naviation">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="container" style="width: auto;">
+							<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							</a>
+							<a class="brand" href="/CSUN-ST-Planner2/">CSUN-ST-Planner2</a>
+							<div class="nav-collapse">
+								<ul class="nav">
+									<li><a href="teacher.php">Teacher</a></li>
+									<li><a href="student.php">Student</a></li>
+								</ul>
+								<ul class="nav pull-right">
+									<li class="divider-vertical"></li>
+									<li><a href="http://projectpossibility.org/" target="_blank">Project:Possibility</a></li>
+								</ul>
+							</div><!-- /.nav-collapse -->
+						</div>
+					</div><!-- /navbar-inner -->
+				</div>
+			</nav>
+
+			<h1><?php echo $subtitle; ?></h1>

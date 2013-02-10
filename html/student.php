@@ -2,7 +2,7 @@
 	$prefix = ".";
 	$section = "root";
 	$page = "student_task";
-	$subtitle = "Student View";
+	$subtitle = "Student Task View";
 	
 	require_once($prefix."/includes/vars.php");	
 	require_once($prefix."/includes/head.php");
@@ -45,12 +45,6 @@
 
 			//-- Get all the events for the selected class calendar
 			$eventsObj = $cal->events->listEvents($class_calendar_id, $optParams);
-
-			/*
-			print_r("<pre>");
-			print_r($eventsOjb);
-			print_r("</pre>");
-			*/
 			
 			//-- Get an array of Event
 			$events = $eventsObj->getItems();
@@ -69,12 +63,6 @@
 		//-- Get difference between due date and today's date 
 		$timeLeft = $due_date->diff(new DateTime(date("Y-m-d H:i:s")));
 
-		/*
-		print_r("<pre>");
-		print_r($event);
-		print_r("</pre>");
-		*/
-
 		?>	
 
 		<?php if(isset($errors)) {?>
@@ -85,7 +73,7 @@
 		<?php } ?>
 
 
-		<h1>Task: <?php echo $summary; ?></h1>
+		<h2>Task: <?php echo $summary; ?></h2>
 	 	
 	
 		<div class="task">

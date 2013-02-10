@@ -6174,7 +6174,8 @@ div.task{
 	border-radius: 8px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
-	margin: 10px 20px 20px 20px;
+	margin: 0px;
+  padding:10px;
 }
 div.page{
 	padding: 10px 20px 20px 20px;
@@ -6185,6 +6186,8 @@ div.page{
 	-webkit-box-shadow: 0px 2px 10px #999999; 
 	box-shadow: 0px 0px 10px #999999; 
 	}
+
+  div.page h2 {font-size:20px;border-bottom:1px solid gray;}
 
 	/* css for timepicker */
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }

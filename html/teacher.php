@@ -2,7 +2,7 @@
 	$prefix = ".";
 	$section = "root";
 	$page = "teacher";
-	$subtitle = "Teacher's Home";
+	$subtitle = "Teacher's Dashboard";
 	
 	require_once($prefix."/includes/vars.php");	
 	require_once($prefix."/includes/head.php");
@@ -30,6 +30,7 @@
 		//-- Get All CSUN-ST-Planner2 Calendars
 		$calList = $cal->calendarList->listCalendarList($optParams);
 
+		echo "<h2>Manage Student Calendar's</h2>";
 		echo "<ul>";
 		foreach($calList->getItems() as $calendar) {
 			$cal_tag = "CSUN-ST-Planner2 - ";
@@ -45,9 +46,9 @@
 
 		?>
 		
+		<h2>Add New Student</h2>
 		<form name="input" action="teacher.do.php" method="post">
         <fieldset>
-          <legend>Add New Student</legend>
           <?php 
 		 	if(isset($success_msg) && !empty($success_msg)) {
 				echo "<div class=\"alert alert-success\">";

@@ -13,6 +13,7 @@ require_once(dirname(__FILE__)."/lib/general.php");
 if (!isset($page)) {$page = '';}
 if (!isset($section)) {$section = '';}
 if (!isset($subpage)) {$subpage = '';}
+if (!isset($subtitle)) {$subtitle = '';}
 
 session_start();
 
