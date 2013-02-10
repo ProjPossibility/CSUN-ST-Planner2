@@ -8,9 +8,11 @@
         <link href="css/bootstrap.css" rel="stylesheet" media="screen">
 		
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+		<link rel="stylesheet" href="css/jquery.timepicker.css" />
 		
         <script src="http://code.jquery.com/jquery.js"></script>
   		<script src="js/bootstrap.min.js"></script>
+		
     </head>
     
     <body>
