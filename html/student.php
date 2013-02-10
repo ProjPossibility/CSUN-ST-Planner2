@@ -54,8 +54,6 @@
 		print_r("</pre>");
 		*/
 
-
-
 		?>	
 
 		<?php if(isset($errors)) {?>
@@ -67,8 +65,7 @@
 
 
 		<h1>Task: <?php echo $summary; ?></h1>
-	 	<input type="hidden" name="event_id" value="<?php echo isset($id)?htmlspecialchars($id):'';?>">
-		<input type="hidden" name="eTag" value="<?php echo isset($eTag)?htmlspecialchars($eTag):'';?>">
+	 	
 	
 		<div class="task">
 			<p>
@@ -81,8 +78,17 @@
 				 <strong>Description:</strong> <?php echo str_replace("\n","<br/>",$description); ?>
 			</p>
 		</div>
+		
 		<form name="input" action="student.do.php" method="post">
-			<button type="submit" class="btn btn-large btn-success">Complete!</button>
+			
+			<input type="hidden" name="event_id" value="<?php echo isset($id)?htmlspecialchars($id):'';?>">
+			<input type="hidden" name="eTag" value="<?php echo isset($eTag)?htmlspecialchars($eTag):'';?>">
+
+			<div class="form-actions">
+				<button type="submit" id="submit_task" name="submit_task" value="complete" class="btn btn-large btn-success">Complete Task</button>
+				<button type="submit" id="submit_task" name="submit_task" value="reset" class="btn btn-large btn-danger">Reset Task</button>
+			</div>
+			
 		</form>
 
 	
