@@ -4,19 +4,7 @@
 	require_once($prefix."/includes/vars.php");
 
 	/*----------------------------------
-		GET POST VARIABLES
-	----------------------------------*/
-	// $data['id'] = "got from post";
-
-	// $errors[][] = "errors";
-
-	// if(isset($errors)) {
-		// include('teacher.php');
-		// die();
-	// }
-	
-	/*----------------------------------
-		PROCESS PAGE
+	GOOGLE STUFF
 	----------------------------------*/
 	$client = new Google_Client();
 	$client->setUseObjects(true);
@@ -39,51 +27,39 @@
 
 	if ($client->getAccessToken()) {
 	
-		//-- Get main task data
+		//-- Get main task post data
 		$main_title = $_POST['tsummary'];
 		$main_objective = $_POST['tdescription'];
 		$milestones = $_POST['milestones'];
-		echo $milestones;
-		print_r($_POST);
+
 		for ($i = 0; $i < $milestones; $i++)
 		{
-			//-- Get individual milestone data
+			//-- Get individual milestone post data
 			$milestone_title = $_POST['msummary' . ($i+1)];
 			$time = $_POST['timepicker' . ($i+1)];
-		
-			// $due_date = new DateTime($_POST['datepicker'.($i+1)]);
-			// $milestone_objective = $_POST['mdescription'];
-				echo $time;
-				echo $milestone_title;
-			// $mtitle = "$main_title-$milestone_title";
+			$date = $_POST['datepicker' . ($i+1)];
 			
-			// echo $msummary;
-			// echo '<br>';
-			// echo $due_date->format("Y-m-d H:i:s");
-			// echo '<br>';
-			// echo $mtitle;
-			// echo '<br>';
+			$due_date = new DateTime("$date $time");
+			$milestone_objective = $_POST['mdescription'. ($i+1)];
 			
-			// $starttime = $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s");
-			// $due_date->modify("+10 minutes");
-			// $end_time =  $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s");
-			// echo $starttime;
-			// echo "<br>";
+			$full_title = "$main_title-$milestone_title";
+				
+			$start_time = $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
+			$due_date->modify("+10 minutes");
+			$end_time =  $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
 			
-			// echo $end_time;
-			// echo "<br>";
-			
-			/*
+			//-- Create event and add to calendar
 			$event = new Google_Event();
-			$event->setSummary($main_title . "-" . $milestone_title[$i]);
+			$event->setSummary($full_title);
+			$event->setDescription($main_objective . ":\n" . $milestone_objective);
 			$start = new Google_EventDateTime();
-			$start->setDateTime($due_dates[$i]);
+			$start->setDateTime($start_time);
 			$end = new Google_EventDateTime();
-			$end->setDateTime($end_dates[$i]);
+			$end->setDateTime($end_time);
 			$event->setStart($start);
 			$event->setEnd($end);
-			echo $event->getSummary();
-			$cal->events->insert('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com', $event);*/
+
+			$cal->events->insert(getClassCalendarID(), $event);
 		}
 		$_SESSION['token'] = $client->getAccessToken();
 	}
@@ -100,12 +76,11 @@
 		FINALIZE
 	----------------------------------*/
 	if ($success == true) {
-		 //header( 'Location:teacher.php?id='.$data['id']."&success_msg={$success_msg}"); 
+		 //header( 'Location:teacher_add_task.php?id='.$data['id']."&success_msg={$success_msg}"); 
 		 die();
 	} else {
 		$errors['form'][] = "Error on form";
 		include('teacher.php');
 		die();
 }
-
 ?>
