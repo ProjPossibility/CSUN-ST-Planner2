@@ -10,39 +10,39 @@
     </head>
     
     <body>
-        <div class="page" style="max-width:550px;">
+        <div class="page span7">
             	<h1>Main Task</h1>
 
             <form class="form-horizontal">
-                <label class="control-label">Title:</label>
+                <label class="control-label" for="tsummary">Title:</label>
                 <div class="controls">
                     <input type="text" name="tsummary" id="tsummary" placeholder="What would you like to call this?">
                 </div>
-                <label class="control-label">Due Date:</label>
+                <label class="control-label" for="tdate">Due Date:</label>
                 <div class="controls">
                     <input type="date" name="tdate" id="tdate" placeholder="What date will this be due?">
                 </div>
-                <label class="control-label">Description:</label>
+                <label class="control-label" for="tdescription">Description:</label>
                 <div class="controls">
                     <textarea rows="3" id="tdescription" name="tdescription"></textarea>
                 </div>
                 <div class="task">
-                    <form class="form-horizontal">
+                    <div class="form-horizontal">
                         	<h2>Milestone 1</h2>
 
-                        <label class="control-label">Title:</label>
+                        <label class="control-label" for="msummary">Title:</label>
                         <div class="controls">
                             <input type="text" name="msummary" id="msummary" placeholder="What would you like to call this?">
                         </div>
-                        <label class="control-label">Due date/time:</label>
+                        <label class="control-label" for="datetimepicker">Due date/time:</label>
                         <div class="controls">
-                            <input type="text" id="datetimepicker" name="datetimepicker" placeholder="What date will this be due?">
+                            <input type="text" id="mdate" name="mdate" placeholder="What date will this be due?">
                         </div>
-                        <label class="control-label">Description:</label>
+                        <label class="control-label" for="mdescription">Description:</label>
                         <div class="controls">
                             <textarea rows="3" id="mdescription" name="mdescription"></textarea>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <button type="button" id="create" name="create" class="btn btn-large btn-success">Create</button>
         </div>
