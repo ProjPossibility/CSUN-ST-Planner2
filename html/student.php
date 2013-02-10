@@ -29,7 +29,7 @@
 		$optParams = array(
 					'maxResults' => "1",
 					'orderBy' => 'startTime',
-					'singleEvents' => "true",
+					'singleEvents' => "true"
 					);
 
 		$event_id = (isset($_GET['event_id']))?$_GET['event_id']:0;
@@ -44,7 +44,7 @@
 			//-- Get data of event due soonest --//
 
 			//-- Get all the events for the selected class calendar
-			$eventsObj = $cal->events->listEvents($class_calendar_id);
+			$eventsObj = $cal->events->listEvents($class_calendar_id, $optParams);
 
 			/*
 			print_r("<pre>");
