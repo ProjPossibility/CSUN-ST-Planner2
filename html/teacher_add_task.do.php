@@ -44,6 +44,7 @@
 		$main_objective = $_POST['tdescription'];
 		$milestones = $_POST['milestones'];
 		echo $milestones;
+		print_r($_POST);
 		for ($i = 0; $i < $milestones; $i++)
 		{
 			//-- Get individual milestone data
