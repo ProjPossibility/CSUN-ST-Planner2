@@ -17,56 +17,72 @@
 
 	if ($client->getAccessToken()) {
 		$success = true;
-		$goodmain = true;
 		
 		//-- Get main task post data
-		$main_title = $_POST['tsummary'];
-		$main_objective = $_POST['tdescription'];
-		$milestones = $_POST['milestones'];
+		$main_title = (isset($_POST['tsummary'])) ? $_POST['tsummary']:""; 
+		$main_objective = (isset($_POST['tdescription'])) ? $_POST['tdescription']:""; 
+		$milestones = (isset($_POST['milestones'])) ? $_POST['milestones']:""; 
+		
+		//Errors on page
+		$errors = array();
+		
+		//milestone data
+		$datamilestones = array();
 		
 		//-- Check main task data
 		if(empty($main_title)){
-			$goodmain = false;
+			$errors['tsummary'][] = "Main task title required";
 			$success = false;
 		}
-		else if(empty($main_objective)){
-			$goodmain = false;
+		if(empty($main_objective)){
+			$errors['tdescription'][] = "Main objective required";
 			$success = false;
 		}
-		
 
-		//-- If main title and main objective are set, add milestones
-		if($goodmain){
+		//-- Get post data for milestones
+		for ($i = 0; $i < $milestones; $i++)
+		{
+			//-- Get individual milestone post data
+			$milestone_title = (isset($_POST['msummary' . ($i+1)])) ? $_POST['msummary' . ($i+1)]:""; 
+			$time = (isset($_POST['timepicker' . ($i+1)])) ? $_POST['timepicker' . ($i+1)]:"";
+			$date = (isset($_POST['datepicker' . ($i+1)])) ? $_POST['datepicker' . ($i+1)]: "";
+			$milestone_objective = (isset($_POST['mdescription'. ($i+1)])) ? $_POST['mdescription' . ($i+1)]: "";
+			
+			$datamilestones[$i]['msummary'] = $milestone_title;
+			$datamilestones[$i]['timepicker'] = $time;
+			$datamilestones[$i]['datepicker'] = $date;
+			$datamilestones[$i]['mdescription'] = $milestone_objective;
+			
+			//-- Check for milestone data
+			if(empty($milestone_title)){
+				$success = false;
+				$errors[][] = "Milestone title required";
+			}
+			if(! validateDate($date)){
+				$success = false;
+				$errors[][] = "Invalid due date";
+			}
+			if(empty($time)){
+				$success = false;
+				$errors[][] = "Time due required";
+			}
+			if(empty($milestone_objective)){
+				$success = false;
+				$errors[][] = "Milestone objective required";
+			}
+		}
 		
-			for ($i = 0; $i < $milestones; $i++)
-			{
-				//-- Get individual milestone post data
-				$milestone_title = $_POST['msummary' . ($i+1)];
-				$time = $_POST['timepicker' . ($i+1)];
-				$date = $_POST['datepicker' . ($i+1)];
-				$milestone_objective = $_POST['mdescription'. ($i+1)];
+		//-- If no errors are detected insert milestones
+		if($success){
+			for ($i = 0; $i < $milestones; $i++){
+			
+				$milestone_title = $datamilestones[$i]['msummary'];
+				$time = $datamilestones[$i]['timepicker'];
+				$date = $datamilestones[$i]['datepicker'];
+				$milestone_objective = $datamilestones[$i]['mdescription'];
 				
-				//-- Check for milestone data
-				if(! validateDate($date)){
-					$success = false;
-					break;
-				}
-				else if(empty($milestone_title)){
-					$success = false;
-					break;
-				}
-				else if(empty($time)){
-					$success = false;
-					break;
-				}
-				else if(empty($milestone_objective)){
-					$success = false;
-					break;
-				}
-						
 				$due_date = new DateTime("$date $time");
 				$full_title = "$main_title-$milestone_title";
-					
 				$start_time = $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
 				$due_date->modify("+10 minutes");
 				$end_time =  $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
@@ -94,20 +110,18 @@
 
 	//-- Check if event successfully inserted
 	if ($success == true) {
-		echo 'here';
 		 header("Location:teacher_student_view.php?&success_msg={$success_msg}"); 
 		 die();
 	} else {
-		$errors['form'][] = "Error on form";
         include('teacher_add_task.php');
 		die();
 }
 
 	function validateDate($date)
 	{
-		$year = substr($date, 0, 4);
-		$month = substr($date, 5,2);
-		$day = substr($date, 8, 2);
+		$year = substr($date, 6, 4);
+		$month = substr($date, 0,2);
+		$day = substr($date, 3, 2);
 		
 		return checkdate($month, $day, $year);
 	}
