@@ -31,12 +31,21 @@
 		//-- Get all the events for the selected class calendar
 		$eventsObj = $cal->events->listEvents($class_calendar_id,$optParams);
 		
-	?>
+?>
 		<div class="page">
-		<h1>Student Overview</h1>
-		<input type="text" id="milestones" class="input-mini" name="milestones" placeholder="#">
-		<button type="button" id="create" name="create" class="btn btn-large">Add new task</button>
-        
+			<h1>Student Overview</h1>
+			<input type="text" id="milestones" class="input-mini" name="milestones" placeholder="#">
+			<button type="button" id="create" name="create" class="btn btn-large">Add new task</button>
+	        <table class="table table-bordered table-striped table-hover">
+	            <thead>
+	                <tr>
+		                <th>Title</th>
+		                <th>Start Date</th>
+		                <th>Time Left</th>
+		                <th>Link</th>
+	                </tr>
+	            </thead>
+	            <tbody>
 <?php
 		foreach($eventsObj->getItems() as $event) {
 			//-- Set Page Data
@@ -51,16 +60,27 @@
 			
 			
 			//display table
-		?>
+?>
 		
-		
-        </div>
-
+			
+                <tr>
+	                <td><?php echo $summary; ?></td>
+	                <td><?php echo $startDateObj->getDateTime(); ?></td>
+	                <td><?php echo //URSULA WILL DO IT// ?></td>
+	                <td><a href="<?php echo $htmlLink; ?>"><?php echo $htmlLink; ?></a></td>
+                </tr>
 <?php 	
-} else {
-  $authUrl = $client->createAuthUrl();
-  print "<a class='login' href='$authUrl'>Connect Me!</a>";
 }
+?>
+				</tbody>
+            </table>
+       </div>
+<?php
+}
+	else {
+		$authUrl = $client->createAuthUrl();
+		print "<a class='login' href='$authUrl'>Connect Me!</a>";
+	}
 
 ?>	
 <?php
