@@ -57,6 +57,12 @@
                 </div>
 			</form>
         </div>
+		<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+        <script>
+            $(function () {
+                $("#mdate, #tdate").datepicker();
+            });
+        </script>
 		
 <?php
 	require($prefix."/includes/foot.php");
