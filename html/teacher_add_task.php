@@ -18,7 +18,7 @@
             <form class="form-horizontal" name="teacher_add_task" action="teacher_add_task.do.php" method="post">
                 <label class="control-label">Title:</label>
                 <div class="controls">
-                    <input type="text" name="tsummary" id="tsummary" placeholder="What would you like to call this?">
+                    <input type="text" name="tsummary" id="tsummary" placeholder="What is the main project?">
                 </div>
                 <label class="control-label">Description:</label>
                 <div class="controls">
@@ -38,11 +38,11 @@
                         </div>
                         <label class="control-label">Due Date:</label>
                         <div class="controls">
-                            <input type="text" id="mdate" name="datepicker<?php echo ($i+1); ?>" placeholder="What date will this be due?">
+                            <input type="text" class="date" name="datepicker<?php echo ($i+1); ?>"><span class="help-inline">(Format 05/22/2013)</span>
 						</div>	
 						<label class="control-label">Time:</label>
 						<div class="controls">
-							<input type="text" id="tdate" name="timepicker<?php echo ($i+1); ?>" placeholder="What time will this be due?">
+							<input type="text" class="time" name="timepicker<?php echo ($i+1); ?>"><span class="help-inline">(Format 08:29 AM)</span>
                         </div>
                         <label class="control-label">Description:</label>
                         <div class="controls">
@@ -60,7 +60,7 @@
         <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
         <script>
             $(function () {
-                $("#mdate, #tdate").datepicker();
+                $(".date").datepicker();
             });
         </script>
 		
