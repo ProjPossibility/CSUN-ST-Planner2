@@ -57,7 +57,7 @@ if ($client->getAccessToken()) {
 
 	echo $createdEvent->getId();
 	
-	$cal.events().delete($cal->getClassCalendarID(), $createdEvent->getID()).execute();
+	$cal->events->delete('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com', $createdEvent->getID());
 	
 $_SESSION['token'] = $client->getAccessToken();
 } else {
