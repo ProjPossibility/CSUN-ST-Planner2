@@ -7,7 +7,7 @@
 	require($prefix."/includes/vars.php");	
 	require($prefix."/includes/head.php");
 	
-	$milestonenum = $_GET["milestones"];
+	$milestonenum = 2;//$_GET["milestones"];
 ?>	
 
 
@@ -46,6 +46,7 @@
                         <label class="control-label">Description:</label>
                         <div class="controls">
                             <textarea rows="3" id="mdescription<?php echo ($i+1); ?>" name="mdescription<?php echo ($i+1); ?>"></textarea>
+						<input type="hidden" id="milestones" name="milestones" value="<?php $milestonenum ?>">
                         </div>
                     </div>
                 </div>

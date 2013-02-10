@@ -7,6 +7,7 @@
 	require($prefix."/includes/vars.php");	
 	require($prefix."/includes/head.php");
 
+	
 ?>	
 
 Teacher Student View
