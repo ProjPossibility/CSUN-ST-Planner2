@@ -48,12 +48,12 @@ if ($client->getAccessToken()) {
 
 		case 'complete':
 			//-- Add "Complete" to the title of the event. 
-			$event->setSummary($event->getSummary() . ' - COMPLETE');
+			$event->setSummary($event->getSummary() . ' ::: COMPLETED');
 			break;
 
 		case 'reset':
 			//-- Remove "Complete" to the title of the event. 
-			$event->setSummary(str_replace(' - COMPLETE','',$event->getSummary()));
+			$event->setSummary(str_replace(' ::: COMPLETED','',$event->getSummary()));
 			break;
 
 		default:
