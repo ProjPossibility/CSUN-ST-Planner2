@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
         <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
     </head>
     
     <body>
@@ -15,15 +16,15 @@
             <form class="form-horizontal">
                 <label class="control-label">Title:</label>
                 <div class="controls">
-                    <input type="text" name="Title" id="Title" placeholder="What would you like to call this?">
+                    <input type="text" name="tsummary" id="tsummary" placeholder="What would you like to call this?">
                 </div>
                 <label class="control-label">Due Date:</label>
                 <div class="controls">
-                    <input type="date" placeholder="What date will this be due?">
+                    <input type="date" name="tdate" id="tdate" placeholder="What date will this be due?">
                 </div>
                 <label class="control-label">Description:</label>
                 <div class="controls">
-                    <textarea rows="3"></textarea>
+                    <textarea rows="3" id="tdescription" name="tdescription"></textarea>
                 </div>
                 <div class="task">
                     <form class="form-horizontal">
@@ -31,42 +32,28 @@
 
                         <label class="control-label">Title:</label>
                         <div class="controls">
-                            <input type="text" placeholder="What would you like to call this?">
+                            <input type="text" name="msummary" id="msummary" placeholder="What would you like to call this?">
                         </div>
-                        <label class="control-label">Due Date:</label>
+                        <label class="control-label">Due date/time:</label>
                         <div class="controls">
-                            <input type="date" placeholder="What date will this be due?">
+                            <input type="text" id="datetimepicker" name="datetimepicker" placeholder="What date will this be due?">
                         </div>
                         <label class="control-label">Description:</label>
                         <div class="controls">
-                            <textarea rows="3"></textarea>
+                            <textarea rows="3" id="mdescription" name="mdescription"></textarea>
                         </div>
                     </form>
                 </div>
-                <div class="task">
-                    <form class="form-horizontal">
-                        	<h2>Milestone 2</h2>
-
-                        <label class="control-label">Title:</label>
-                        <div class="controls">
-                            <input type="text" placeholder="What would you like to call this?">
-                        </div>
-                        <label class="control-label">Due Date:</label>
-                        <div class="controls">
-                            <input type="date" placeholder="What date will this be due?">
-                        </div>
-                        <label class="control-label">Description:</label>
-                        <div class="controls">
-                            <textarea rows="3"></textarea>
-                        </div>
-                </div>
-                </form>
-                <button type="button" class="btn btn-large btn-success">Create</button>
+                <button type="button" id="create" name="create" class="btn btn-large btn-success">Create</button>
         </div>
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        </div>
-        </div>
+		<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+		  <script>
+  $(function() {
+    $('#datepicker').datepicker();
+  });
+  </script>
     </body>
 
 </html>
