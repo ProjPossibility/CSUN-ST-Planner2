@@ -4,8 +4,8 @@
 	$page = "student_task";
 	$subtitle = "Student View";
 	
-	require($prefix."/includes/vars.php");	
-	require($prefix."/includes/head.php");
+	require_once($prefix."/includes/vars.php");	
+	require_once($prefix."/includes/head.php");
 
 
 	$client = new Google_Client();

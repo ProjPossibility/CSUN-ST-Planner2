@@ -4,8 +4,8 @@
 	$page = "teacher";
 	$subtitle = "Teacher's Home";
 	
-	require($prefix."/includes/vars.php");	
-	require($prefix."/includes/head.php");
+	require_once($prefix."/includes/vars.php");	
+	require_once($prefix."/includes/head.php");
 
 	$success_msg = (isset($_GET["success_msg"]))?$_GET["success_msg"]:"";
 
@@ -60,15 +60,14 @@
           <div class="control-group">
             <label class="control-label" for="student_name">Student's Name</label>
             <div class="controls">
-              <input type="text" class="input-xlarge" id="student_name" name="student_name">
+              <input type="text" class="input-xlarge" id="student_name" name="student_name" value="<?php echo (isset($data['student_name']))?$data['student_name']:""; ?>" />
               <p class="help-block"></p>
             </div>
           </div>
            <div class="control-group">
             <label class="control-label" for="student_email">Student's Email</label>
             <div class="controls">
-              <input type="text" class="input-xlarge" placeholder="examples@gmail.com" id="student_email" name="student_email">
-              <p class="help-block">Calendar will be shared with the student via this email</p>
+              <input type="text" class="input-xlarge" placeholder="examples@gmail.com" id="student_email" name="student_email" value="<?php echo (isset($data['student_email']))?$data['student_email']:""; ?>" />
             </div>
           </div>
           <div class="form-actions">
