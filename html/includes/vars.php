@@ -1,8 +1,6 @@
 <?php 
 
-if (isset($_GET['logout'])) {
-  unset($_SESSION['token']);
-}
+
 
 /** BASIC SITE REQUIRED FILES **/ 
 require_once(dirname(__FILE__)."/../../src/Google_Client.php");
@@ -17,5 +15,10 @@ if (!isset($section)) {$section = '';}
 if (!isset($subpage)) {$subpage = '';}
 
 session_start();
+
+if (isset($_GET['logout'])) {
+  unset($_SESSION['token']);
+  unset($_SESSION['calendar_id']);
+}
 
 ?>
