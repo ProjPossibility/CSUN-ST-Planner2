@@ -25,7 +25,7 @@
 						<div class="container" style="width: auto;">
 							<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 							</a>
-							<a class="brand" href="/CSUN-ST-Planner2/">CSUN-ST-Planner2</a>
+							<a class="brand" href="/CSUN-ST-Planner2/html">CSUN-ST-Planner2</a>
 							<div class="nav-collapse">
 								<ul class="nav">
 									<li><a href="teacher.php">Teacher</a></li>
