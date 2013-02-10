@@ -57,10 +57,14 @@
 					$eTag =  $event->getEtag();
 					$description = $event->getDescription();
 					$startDateObj = $event->getStart();
-					$dueDate = $startDateObj->getDateTime();
-					$timeLeft = $event->getStart();
+					$dueDate = new DateTime($event->getStart()->getDateTime());
+					$timeLeft = new DateTime(date("Y-m-d H:i:s"));
+					if($dueDate > $timeLeft)
+						$timeLeft = $dueDate->diff($timeLeft);
+					else
+						$timeLeft = $timeLeft->diff($timeLeft);
 					$htmlLink =  $event->getHtmlLink();
-					$sub1 = substr($dueDate);
+					//$sub1 = substr($dueDate);
 					
 					//display table
 ?>
@@ -68,12 +72,12 @@
 			
                 <tr>
 	                <td><?php echo $summary; ?></td>
-	                <td><?php echo $startDateObj->getDateTime(); ?></td>
+	                <td><?php echo $dueDate->format("Y-m-d H:i:s"); ?></td>
 	                <td>
 <?php
-$today = date("Y-m-d H:i:s.m");
-echo $today?>
-</td>
+					echo  $timeLeft->d." days  and " . $timeLeft->h." hours ";;
+?>
+					</td>
 	                <td><a href="<?php echo $htmlLink; ?>">View Event</a></td>
                 </tr>
 <?php 	
