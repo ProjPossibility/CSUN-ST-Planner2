@@ -60,44 +60,39 @@
 	            </thead>
 	            <tbody>
 <?php
-				foreach($eventsObj->getItems() as $event) {
-					//-- Set Page Data
-					$id = $event->getId();
-					$summary = $event->getSummary();
-					$eTag =  $event->getEtag();
-					$description = $event->getDescription();
-					$startDateObj = $event->getStart();
-					$dueDate = new DateTime($event->getStart()->getDateTime());
-					$timeLeft = new DateTime(date("Y-m-d H:i:s"));
-					if($dueDate > $timeLeft)
-					{
-						$timeLeft = $dueDate->diff($timeLeft);
-						$PassedDue = false;
-					} else
-					{
-						$timeLeft = $timeLeft->diff($timeLeft);
-						$PassedDue = true;
-					}
-					$htmlLink =  $event->getHtmlLink();
-					//$sub1 = substr($dueDate);
-					
-					//display table
-?>
-		
+				if ($eventsObj->getItems()) {
+
+					foreach($eventsObj->getItems() as $event) {
+						//-- Set Page Data
+						$id = $event->getId();
+						$summary = $event->getSummary();
+						$eTag =  $event->getEtag();
+						$description = $event->getDescription();
+						$startDateObj = $event->getStart();
+						$dueDate = new DateTime($event->getStart()->getDateTime());
+						$timeLeft = new DateTime(date("Y-m-d H:i:s"));
+						if($dueDate > $timeLeft)
+						{
+							$timeLeft = $dueDate->diff($timeLeft);
+							$PassedDue = false;
+						} else
+						{
+							$timeLeft = $timeLeft->diff($timeLeft);
+							$PassedDue = true;
+						}
+						$htmlLink =  $event->getHtmlLink(); ?>
 			
-                <tr <?php echo ($PassedDue)?"class=\"error\"":""?> ">
-	                <td><?php echo $summary; ?></td>
-	                <td><?php echo $dueDate->format("Y-m-d H:i:s"); ?></td>
-	                <td>
-<?php
-					echo  $timeLeft->d." days  and " . $timeLeft->h." hours ";;
-?>
-					</td>
-	                <td><a href="<?php echo $htmlLink; ?>">View Event</a></td>
-                </tr>
-<?php 	
-}
-?>
+				
+	                	<tr <?php echo ($PassedDue)?"class=\"error\"":""?> ">
+		                <td><?php echo $summary; ?></td>
+		                <td><?php echo $dueDate->format("Y-m-d H:i:s"); ?></td>
+		                <td><?php
+						echo  $timeLeft->d." days  and " . $timeLeft->h." hours "; ?>
+						</td>
+		                <td><a href="<?php echo $htmlLink; ?>">View Event</a></td>
+	                	</tr>
+					<?php } //-- end for loop
+				} //-- end if blank ?>
 				</tbody>
             </table>
 <?php
