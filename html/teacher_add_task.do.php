@@ -4,19 +4,7 @@
 	require_once($prefix."/includes/vars.php");
 
 	/*----------------------------------
-		GET POST VARIABLES
-	----------------------------------*/
-	// $data['id'] = "got from post";
-
-	// $errors[][] = "errors";
-
-	// if(isset($errors)) {
-		// include('teacher.php');
-		// die();
-	// }
-	
-	/*----------------------------------
-		PROCESS PAGE
+	GOOGLE STUFF
 	----------------------------------*/
 	$client = new Google_Client();
 	$client->setUseObjects(true);
@@ -39,14 +27,14 @@
 
 	if ($client->getAccessToken()) {
 	
-		//-- Get main task data
+		//-- Get main task post data
 		$main_title = $_POST['tsummary'];
 		$main_objective = $_POST['tdescription'];
 		$milestones = $_POST['milestones'];
 
 		for ($i = 0; $i < $milestones; $i++)
 		{
-			//-- Get individual milestone data
+			//-- Get individual milestone post data
 			$milestone_title = $_POST['msummary' . ($i+1)];
 			$time = $_POST['timepicker' . ($i+1)];
 			$date = $_POST['datepicker' . ($i+1)];
@@ -55,8 +43,7 @@
 			$milestone_objective = $_POST['mdescription'. ($i+1)];
 			
 			$full_title = "$main_title-$milestone_title";
-			
-	
+				
 			$start_time = $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
 			$due_date->modify("+10 minutes");
 			$end_time =  $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
@@ -72,7 +59,7 @@
 			$event->setStart($start);
 			$event->setEnd($end);
 
-			$cal->events->insert('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com', $event);
+			$cal->events->insert(getClassCalendarID(), $event);
 		}
 		$_SESSION['token'] = $client->getAccessToken();
 	}
@@ -89,12 +76,11 @@
 		FINALIZE
 	----------------------------------*/
 	if ($success == true) {
-		 //header( 'Location:teacher.php?id='.$data['id']."&success_msg={$success_msg}"); 
+		 //header( 'Location:teacher_add_task.php?id='.$data['id']."&success_msg={$success_msg}"); 
 		 die();
 	} else {
 		$errors['form'][] = "Error on form";
 		include('teacher.php');
 		die();
 }
-
 ?>
