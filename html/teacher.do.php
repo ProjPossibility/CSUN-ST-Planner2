@@ -47,11 +47,33 @@ $success = true;
 //-- All Systems's Go
 if ($client->getAccessToken()) {
 	$calendar = new Google_Calendar();
+
+	//-- Set new Calendar Data
   	$calendar->setSummary("CSUN-ST-Planner2 - ".$data['student_name']);
   	$calendar->setTimeZone('America/Los_Angeles');
   	$calendar->setDescription("CSUN-ST-Planner2 Project");
 
+  	//-- Insert into Google
   	$createdCalendar = $cal->calendars->insert($calendar);
+
+  	$calendar_id = $createdCalendar->getId();
+
+  	//-- Add ACL permission for student to review calendar
+  	try {
+  		$rule = new Google_AclRule();
+		$scope = new Google_AclRuleScope();
+
+  		$scope->setType("user");
+		$scope->setValue($data['student_email']);
+		$rule->setScope($scope);
+		$rule->setRole("reader");
+
+		$createdRule = $cal->acl->insert($calendar_id, $rule);
+
+  	} catch (Exception $e) {
+  		$errors[][] = "Error Giving Read permissions to student.";
+  	}
+  		
 
 	//-- Clear Data
 	$data['student_name'] = "";
