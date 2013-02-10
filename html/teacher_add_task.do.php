@@ -35,7 +35,7 @@
 			$success = false;
 		}
 		if(empty($main_objective)){
-			$errors['tdescription'][] = "Main objective required";
+			$errors['tdescription'][] = "Main task description required";
 			$success = false;
 		}
 
@@ -68,7 +68,7 @@
 			}
 			if(empty($milestone_objective)){
 				$success = false;
-				$errors[][] = "Milestone objective required";
+				$errors[][] = "Milestone description required";
 			}
 		}
 		
