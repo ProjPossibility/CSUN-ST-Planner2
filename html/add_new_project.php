@@ -2,31 +2,25 @@
 	$prefix = ".";
 	$section = "root";
 	$page = "teacher";
-	$subtitle = "Teacher Add Task";
+	$subtitle = "Add New Project";
 	
 	require($prefix."/includes/vars.php");	
 	require($prefix."/includes/head.php");
-	
-	$milestonenum = $_GET["milestones"];
 
 ?>	
 
 
 
-            <h1>Main Task</h1>
+            <h1>Add New Project</h1>
 
             <form class="form-horizontal">
-                <label class="control-label">Title:</label>
+                <label class="control-label">Number of Milestones:</label>
                 <div class="controls">
-                    <input type="text" name="tsummary" id="tsummary" placeholder="What would you like to call this?">
+                    <input type="number" name="milestones" id="milestones" placeholder="Number">
                 </div>
-                <label class="control-label">Description:</label>
-                <div class="controls">
-                    <textarea rows="3" id="tdescription" name="tdescription"></textarea>
-                </div>
+				<button type="button" id="create" name="create" class="btn btn-large btn-success">Add</button>	
 				
-				
-<?php			for($i = 0; $i < $milestonenum; $i++)
+<!--<?php//			for($i = 0; $i < $milestonenum; $i++)
 				{?>
                 <div class="task">
                     <div class="form-horizontal">
@@ -46,9 +40,9 @@
                         </div>
                     </div>
                 </div>
-<?php			}?>
+<?php//			}?>-->
                 </form>
-                <button type="button" id="create" name="create" class="btn btn-large btn-success">Create</button>
+                
         </div>
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
