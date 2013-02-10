@@ -1,6 +1,6 @@
 		<footer>
 		<?php
-		if (method_exists($client,"getAccessToken") && $client->getAccessToken())  { ?>
+		if (isset($client) && method_exists($client,"getAccessToken") && $client->getAccessToken())  { ?>
 			<a href="?logout=true">Logout</a>
 		<?php
 			} else {
