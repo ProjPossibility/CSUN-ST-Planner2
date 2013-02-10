@@ -32,8 +32,6 @@
 		//-- Get the current class calendar ID
 		$class_calendar_id = getClassCalendarID();
 
-		echo "cal:".$class_calendar_id;
-
 		//-- Set the Params on the search
 		$optParams = array(
 					'orderBy' => 'starttime',
