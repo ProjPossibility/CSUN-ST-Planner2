@@ -84,10 +84,6 @@ echo $today?>
        </div>
 <?php
 }
-	else {
-		$authUrl = $client->createAuthUrl();
-		print "<a class='login' href='$authUrl'>Connect Me!</a>";
-	}
 
 ?>	
 <?php
