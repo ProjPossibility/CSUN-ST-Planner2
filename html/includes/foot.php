@@ -1,4 +1,6 @@
-<br><br>
---- footer ---
+	<a href="?logout=true">Logout</a>
+   </div>
+        </div>
+    </body>
 
-<a href="?logout=true">Logout</a>
+</html>
