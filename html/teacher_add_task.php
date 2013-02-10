@@ -46,12 +46,12 @@
                         <label class="control-label">Description:</label>
                         <div class="controls">
                             <textarea rows="3" id="mdescription<?php echo ($i+1); ?>" name="mdescription<?php echo ($i+1); ?>"></textarea>
-						<input type="hidden" id="milestones" name="milestones" value="<?php $milestonenum ?>">
                         </div>
                     </div>
                 </div>
 <?php			}?>
 				<div align=center>
+					<input type="hidden" id="milestones" name="milestones" value="<?php $milestonenum ?>">
 					<input type="submit" id="create" name="create" class="btn btn-large btn-success" value="Create">
                 </div>
 				</form>
