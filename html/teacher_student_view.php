@@ -60,7 +60,7 @@
 					$dueDate = $startDateObj->getDateTime();
 					$timeLeft = $event->getStart();
 					$htmlLink =  $event->getHtmlLink();
-					
+					$sub1 = substr($dueDate);
 					
 					//display table
 ?>
