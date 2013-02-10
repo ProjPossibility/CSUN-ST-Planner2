@@ -36,7 +36,6 @@
 
 		
 ?>
-		<div class="page">
 			<h1>Student Overview</h1>
 			<form class="form-horizontal" name="teacher_student_view" action="teacher_add_task.php" method="post">
 			<label class="control-label">Milestones:</label>
@@ -94,7 +93,6 @@
 ?>
 				</tbody>
             </table>
-       </div>
 <?php
 }
 
