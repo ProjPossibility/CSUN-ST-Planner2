@@ -29,6 +29,7 @@
 		//-- Get the current class calendar ID
 		$class_calendar_id = getClassCalendarID();
 
+		//-- Set the Params on the search
 		$optParams = array(
 					'maxResults' => "1",
 					'orderBy' => 'startTime',
@@ -38,14 +39,26 @@
 		//-- Get all the events for the selected class calendar
 		$eventsOjb = $cal->events->listEvents($class_calendar_id,$optParams);
 
-		//-- Get an array of all Events
-		$current_event = $eventsOjb->getItems();
+		//-- Get an array of Event
+		$event = $eventsOjb->getItems();
+		
+		//-- Set Page Data
+		$id = $event[0]->getId();
+		$summary = $event[0]->getSummary();
+		$eTag =  $event[0]->getEtag();
+		$description = $event[0]->getDescription();
+		$startDate = $event[0]->getStart();
+		$timeLeft = $event[0]->getStart();
+		$htmlLink =  $event[0]->getHtmlLink();
 
-		
+
+		/*
 		print_r("<pre>");
-		print_r($eventsOjb);
+		print_r(get_class_methods("Google_Event"));
+		print_r($event);
 		print_r("</pre>");
-		
+		*/
+
 		
 	
 } else {
