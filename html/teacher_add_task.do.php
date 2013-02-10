@@ -23,12 +23,6 @@
 	$client->setApplicationName("Application");
 	$cal = new Google_CalendarService($client);
 	
-	$main_title = "Main Title";
-	$milestone_title = array("milestone 1", "milestone 2");
-	$due_dates = array('2013-02-11T10:00:00.000-07:00','2013-02-12T10:00:00.000-07:00');
-	$end_dates = array('2013-02-11T10:30:00.000-07:00','2013-02-12T10:30:00.000-07:00');
-	$number_of_milestones = 2;
-	
 	if (isset($_GET['logout'])) {
 		unset($_SESSION['token']);
 	}
@@ -49,31 +43,34 @@
 		$main_title = $_POST['tsummary'];
 		$main_objective = $_POST['tdescription'];
 		$milestones = $_POST['milestones'];
-		
+		echo $milestones;
 		for ($i = 0; $i < $milestones; $i++)
 		{
 			//-- Get individual milestone data
 			$milestone_title = $_POST['msummary' . ($i+1)];
-			$due_date = new DateTime($_POST['datetimepicker'.($i+1)]);
-			$milestone_objective = $_POST['mdescription'];
+			$time = $_POST['timepicker' . ($i+1)];
 		
-			$mtitle = "$main_title-$milestone_title";
+			// $due_date = new DateTime($_POST['datepicker'.($i+1)]);
+			// $milestone_objective = $_POST['mdescription'];
+				echo $time;
+				echo $milestone_title;
+			// $mtitle = "$main_title-$milestone_title";
 			
-			echo $msummary;
-			echo '<br>';
-			echo $due_date->format("Y-m-d H:i:s");
-			echo '<br>';
-			echo $mtitle;
-			echo '<br>';
+			// echo $msummary;
+			// echo '<br>';
+			// echo $due_date->format("Y-m-d H:i:s");
+			// echo '<br>';
+			// echo $mtitle;
+			// echo '<br>';
 			
-			$starttime = $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s");
-			$due_date->modify("+10 minutes");
-			$end_time =  $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s");
-			echo $starttime;
-			echo "<br>";
+			// $starttime = $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s");
+			// $due_date->modify("+10 minutes");
+			// $end_time =  $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s");
+			// echo $starttime;
+			// echo "<br>";
 			
-			echo $end_time;
-			echo "<br>";
+			// echo $end_time;
+			// echo "<br>";
 			
 			/*
 			$event = new Google_Event();
