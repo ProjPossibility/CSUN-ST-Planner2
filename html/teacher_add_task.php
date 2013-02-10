@@ -8,45 +8,14 @@
 	require($prefix."/includes/head.php");
 	
 	$milestonenum = $_GET["milestones"];
-
-	$client = new Google_Client();
-	$client->setUseObjects(true); 
-	$client->setApplicationName("Google Calendar PHP Starter Application");
-	$service = new Google_CalendarService($client);
-	
-	if (isset($_GET['logout'])) {
-		unset($_SESSION['token']);
-	}
-	
-	if (isset($_GET['code'])) {
-		$client->authenticate($_GET['code']);
-		$_SESSION['token'] = $client->getAccessToken();
-		header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
-	}
-	
-	if (isset($_SESSION['token'])) {
-		$client->setAccessToken($_SESSION['token']);
-	}
-
-	if ($client->getAccessToken()) {
-		$main_title = "Main Title";
-		$main_due_date = new Google_EventDateTime();
-		$main_desc = "Description";
-		$m1_title;
-		$m1_due_date = new Google_EventDateTime();
-		$m1_desc;
-		$m2_title;
-		$m2_due_date = new Google_EventDateTime();
-		$m2_desc =  "Milestone 2";
-	
-	}
+	print_r($_GET);
 ?>	
 
 
 
             <h1>Main Task</h1>
 
-            <form class="form-horizontal">
+            <form class="form-horizontal" name="teacher_add_task" action="teacher_add_task.do.php" method="post">
                 <label class="control-label">Title:</label>
                 <div class="controls">
                     <input type="text" name="tsummary" id="tsummary" placeholder="What would you like to call this?">
@@ -78,8 +47,10 @@
                     </div>
                 </div>
 <?php			}?>
-                </form>
-                <button type="button" id="create" name="create" class="btn btn-large btn-success">Create</button>
+				<div align=center>
+					<input type="submit" id="create" name="create" class="btn btn-large btn-success" value="Create">
+                </div>
+				</form>
         </div>
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
