@@ -6181,9 +6181,9 @@ div.page{
 	border-radius: 8px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
-    -moz-box-shadow: 0px 0px 10px #d3d3d3; 
-	-webkit-box-shadow: 0px 2px 10px #d3d3d3; 
-	box-shadow: 0px 0px 10px #d3d3d3; 
+    -moz-box-shadow: 0px 0px 10px #999999; 
+	-webkit-box-shadow: 0px 2px 10px #999999; 
+	box-shadow: 0px 0px 10px #999999; 
 	}
 
 	/* css for timepicker */
