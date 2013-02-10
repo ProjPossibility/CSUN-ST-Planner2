@@ -4,7 +4,7 @@
 	require_once($prefix."/includes/vars.php");
 
 	/*----------------------------------
-	GOOGLE STUFF
+	Calendar API initializations 
 	----------------------------------*/
 	$client = new Google_Client();
 	$client->setUseObjects(true);
@@ -17,68 +17,70 @@
 
 	if ($client->getAccessToken()) {
 		$success = true;
+		$goodmain = true;
 		
 		//-- Get main task post data
 		$main_title = $_POST['tsummary'];
 		$main_objective = $_POST['tdescription'];
 		$milestones = $_POST['milestones'];
 		
+		//-- Check main task data
 		if(empty($main_title)){
-			
+			$goodmain = false;
 		}
-		
-		
-		for ($i = 0; $i < $milestones; $i++)
-		{
-			//-- Get individual milestone post data
-			$milestone_title = $_POST['msummary' . ($i+1)];
-			$time = $_POST['timepicker' . ($i+1)];
-			$date = $_POST['datepicker' . ($i+1)];
-			$milestone_objective = $_POST['mdescription'. ($i+1)];
-			echo $time;
-			//-- Check for valid date input
-			if(! validateDate($date)){
-				$success = false;
-				echo 'Bad date';
-				break;
-			}
-			else if(empty($milestone_title)){
-				$success = false;
-				echo 'bad title';
-				break;
-			}
-			else if(empty($time)){
-				$success = false;
-				echo 'bad time';
-				break;
-			}
-			else if(empty($milestone_objective)){
-				$success = false;
-				echo 'bad objective';
-				break;
-			}
-			
-			
-			
-			$due_date = new DateTime("$date $time");
-			$full_title = "$main_title-$milestone_title";
-				
-			$start_time = $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
-			$due_date->modify("+10 minutes");
-			$end_time =  $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
-			
-			//-- Create event and add to calendar
-			// $event = new Google_Event();
-			// $event->setSummary($full_title);
-			// $event->setDescription($main_objective . ":\n" . $milestone_objective);
-			// $start = new Google_EventDateTime();
-			// $start->setDateTime($start_time);
-			// $end = new Google_EventDateTime();
-			// $end->setDateTime($end_time);
-			// $event->setStart($start);
-			// $event->setEnd($end);
+		else if(empty($main_objective)){
+			$goodmain = false;
+		}
 
-			// $cal->events->insert(getClassCalendarID(), $event);
+		//-- If main title and main objective are set, add milestones
+		if($goodmain){
+			for ($i = 0; $i < $milestones; $i++)
+			{
+				//-- Get individual milestone post data
+				$milestone_title = $_POST['msummary' . ($i+1)];
+				$time = $_POST['timepicker' . ($i+1)];
+				$date = $_POST['datepicker' . ($i+1)];
+				$milestone_objective = $_POST['mdescription'. ($i+1)];
+				
+				//-- Check for milestone data
+				if(! validateDate($date)){
+					$success = false;
+					break;
+				}
+				else if(empty($milestone_title)){
+					$success = false;
+					break;
+				}
+				else if(empty($time)){
+					$success = false;
+					break;
+				}
+				else if(empty($milestone_objective)){
+					$success = false;
+					break;
+				}
+				
+				
+				
+				$due_date = new DateTime("$date $time");
+				$full_title = "$main_title-$milestone_title";
+					
+				$start_time = $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
+				$due_date->modify("+10 minutes");
+				$end_time =  $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
+				
+				//-- Create event and add to calendar
+				$event = new Google_Event();
+				$event->setSummary($full_title);
+				$event->setDescription($main_objective . ":\n" . $milestone_objective);
+				$start = new Google_EventDateTime();
+				$start->setDateTime($start_time);
+				$end = new Google_EventDateTime();
+				$end->setDateTime($end_time);
+				$event->setStart($start);
+				$event->setEnd($end);
+				$cal->events->insert(getClassCalendarID(), $event);
+			}
 		}
 		$_SESSION['token'] = $client->getAccessToken();
 	}
