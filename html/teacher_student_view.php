@@ -34,8 +34,11 @@
 ?>
 		<div class="page">
 			<h1>Student Overview</h1>
+			<form class="form-horizontal" name="teacher_student_view" action="teacher_add_task.php" method="post">
+			<label class="control-label">Milestones:</label>
 			<input type="text" id="milestones" class="input-mini" name="milestones" placeholder="#">
-			<button type="button" id="create" name="create" class="btn btn-large">Add new task</button>
+			<input type="submit" id="create" name="create" class="btn btn-large" value="Add new task">
+			</form>
 	        <table class="table table-bordered table-striped table-hover">
 	            <thead>
 	                <tr>
@@ -47,19 +50,19 @@
 	            </thead>
 	            <tbody>
 <?php
-		foreach($eventsObj->getItems() as $event) {
-			//-- Set Page Data
-			$id = $event->getId();
-			$summary = $event->getSummary();
-			$eTag =  $event->getEtag();
-			$description = $event->getDescription();
-			$startDateObj = $event->getStart();
-			$dueDate = $startDateObj->getDateTime();
-			$timeLeft = $event->getStart();
-			$htmlLink =  $event->getHtmlLink();
-			
-			
-			//display table
+				foreach($eventsObj->getItems() as $event) {
+					//-- Set Page Data
+					$id = $event->getId();
+					$summary = $event->getSummary();
+					$eTag =  $event->getEtag();
+					$description = $event->getDescription();
+					$startDateObj = $event->getStart();
+					$dueDate = $startDateObj->getDateTime();
+					$timeLeft = $event->getStart();
+					$htmlLink =  $event->getHtmlLink();
+					
+					
+					//display table
 ?>
 		
 			

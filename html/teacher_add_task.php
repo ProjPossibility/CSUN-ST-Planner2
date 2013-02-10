@@ -7,7 +7,8 @@
 	require($prefix."/includes/vars.php");	
 	require($prefix."/includes/head.php");
 	
-	$milestonenum = 2;//$_GET["milestones"];
+	$milestonenum = $_POST['milestones'];
+	
 ?>	
 
 
@@ -54,7 +55,7 @@
 					<input type="hidden" id="milestones" name="milestones" value="<?php echo $milestonenum ?>">
 					<input type="submit" id="create" name="create" class="btn btn-large btn-success" value="Create">
                 </div>
-				</form>
+			</form>
         </div>
 		
 <?php
