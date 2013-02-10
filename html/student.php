@@ -43,19 +43,42 @@
 		$summary = $event[0]->getSummary();
 		$eTag =  $event[0]->getEtag();
 		$description = $event[0]->getDescription();
-		$startDate = $event[0]->getStart();
+		$startDateObj = $event[0]->getStart();
+		$dueDate = $startDateObj->getDateTime();
 		$timeLeft = $event[0]->getStart();
 		$htmlLink =  $event[0]->getHtmlLink();
 
-
-	
+		/*
 		print_r("<pre>");
-		print_r(get_class_methods("Google_Event"));
 		print_r($event);
 		print_r("</pre>");
-		
-		
+		*/
+
+
+
+		?>
+
+		<h1>Task: <?php echo $summary; ?></h1>
+	 	<input type="hidden" name="event_id" value="<?php echo isset($id)?htmlspecialchars($id):'';?>">
+		<input type="hidden" name="eTag" value="<?php echo isset($eTag)?htmlspecialchars($eTag):'';?>">
 	
+		<div class="task">
+			<p>
+				 <strong>Due date:</strong> <?php echo $dueDate; ?>
+			</p>
+			<p class="text-muted">
+				 <strong>Time left:</strong> [timeleft]
+			</p>
+			<p class="lead">
+				 <strong>Description:</strong> <?php echo str_replace("\n","<br/>",$description); ?>
+			</p>
+		</div>
+		<form name="input" action="student.do.php" method="post">
+			<button type="submit" class="btn btn-large btn-success">Complete!</button>
+		</form>
+
+	
+<?php 	
 } else {
   $authUrl = $client->createAuthUrl();
   print "<a class='login' href='$authUrl'>Connect Me!</a>";
