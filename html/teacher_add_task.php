@@ -4,8 +4,8 @@
 	$page = "teacher";
 	$subtitle = "Teacher Add Task";
 	
-	require($prefix."/includes/vars.php");	
-	require($prefix."/includes/head.php");
+	require_once($prefix."/includes/vars.php");	
+	require_once($prefix."/includes/head.php");
 	
 	$milestonenum = $_POST['milestones'];
 	

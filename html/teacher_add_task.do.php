@@ -27,13 +27,17 @@
 		//-- Check main task data
 		if(empty($main_title)){
 			$goodmain = false;
+			$success = false;
 		}
 		else if(empty($main_objective)){
 			$goodmain = false;
+			$success = false;
 		}
+		
 
 		//-- If main title and main objective are set, add milestones
 		if($goodmain){
+		
 			for ($i = 0; $i < $milestones; $i++)
 			{
 				//-- Get individual milestone post data
@@ -59,9 +63,7 @@
 					$success = false;
 					break;
 				}
-				
-				
-				
+						
 				$due_date = new DateTime("$date $time");
 				$full_title = "$main_title-$milestone_title";
 					
@@ -88,17 +90,16 @@
 		$authUrl = $client->createAuthUrl();
 		print "<a class='login' href='$authUrl'>Connect Me!</a>";
 	}
+	$success_msg = "project added";
 
-	/*----------------------------------
-		FINALIZE
-	----------------------------------*/
+	//-- Check if event successfully inserted
 	if ($success == true) {
-		// header( 'Location:teacher_student_view.php?id='.$data['id']."&success_msg={$success_msg}"); 
+		echo 'here';
+		 header("Location:teacher_student_view.php?&success_msg={$success_msg}"); 
 		 die();
 	} else {
 		$errors['form'][] = "Error on form";
-		//header( 'Location:teacher_add_task.php?id='.$data['id']); 
-		//include('teacher_add_task.php');
+        include('teacher_add_task.php');
 		die();
 }
 
