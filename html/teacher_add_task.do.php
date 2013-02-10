@@ -64,13 +64,14 @@
 			//-- Create event and add to calendar
 			$event = new Google_Event();
 			$event->setSummary($full_title);
+			$event->setDescription($main_objective . ":\n" . $milestone_objective);
 			$start = new Google_EventDateTime();
 			$start->setDateTime($start_time);
 			$end = new Google_EventDateTime();
 			$end->setDateTime($end_time);
 			$event->setStart($start);
 			$event->setEnd($end);
-			echo $event->getSummary();
+
 			$cal->events->insert('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com', $event);
 		}
 		$_SESSION['token'] = $client->getAccessToken();

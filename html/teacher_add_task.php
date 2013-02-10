@@ -1,99 +1,62 @@
-<?php
+<?php 
 	$prefix = ".";
-
-	require_once($prefix."/includes/vars.php");
-
-	/*----------------------------------
-		GET POST VARIABLES
-	----------------------------------*/
-	// $data['id'] = "got from post";
-
-	// $errors[][] = "errors";
-
-	// if(isset($errors)) {
-		// include('teacher.php');
-		// die();
-	// }
+	$section = "root";
+	$page = "teacher";
+	$subtitle = "Teacher Add Task";
 	
-	/*----------------------------------
-		PROCESS PAGE
-	----------------------------------*/
-	$client = new Google_Client();
-	$client->setUseObjects(true);
-	$client->setApplicationName("Application");
-	$cal = new Google_CalendarService($client);
+	require($prefix."/includes/vars.php");	
+	require($prefix."/includes/head.php");
 	
-	if (isset($_GET['logout'])) {
-		unset($_SESSION['token']);
-	}
-
-	if (isset($_GET['code'])) {
-		$client->authenticate($_GET['code']);
-		$_SESSION['token'] = $client->getAccessToken();
-		header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
-	}
-
-	if (isset($_SESSION['token'])) {
-		$client->setAccessToken($_SESSION['token']);
-	}
-
-	if ($client->getAccessToken()) {
-	
-		//-- Get main task data
-		$main_title = $_POST['tsummary'];
-		$main_objective = $_POST['tdescription'];
-		$milestones = $_POST['milestones'];
-
-		for ($i = 0; $i < $milestones; $i++)
-		{
-			//-- Get individual milestone data
-			$milestone_title = $_POST['msummary' . ($i+1)];
-			$time = $_POST['timepicker' . ($i+1)];
-			$date = $_POST['datepicker' . ($i+1)];
-			
-			$due_date = new DateTime("$date $time");
-			$milestone_objective = $_POST['mdescription'. ($i+1)];
-			
-			$full_title = "$main_title-$milestone_title";
-			
-	
-			$start_time = $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
-			$due_date->modify("+10 minutes");
-			$end_time =  $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
-			
-			//-- Create event and add to calendar
-			$event = new Google_Event();
-			$event->setSummary($full_title);
-			$start = new Google_EventDateTime();
-			$start->setDateTime($start_time);
-			$end = new Google_EventDateTime();
-			$end->setDateTime($end_time);
-			$event->setStart($start);
-			$event->setEnd($end);
-			echo $event->getSummary();
-			$cal->events->insert('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com', $event);
-		}
-		$_SESSION['token'] = $client->getAccessToken();
-	}
-	else{
-		$authUrl = $client->createAuthUrl();
-		print "<a class='login' href='$authUrl'>Connect Me!</a>";
-	}
+	$milestonenum = 2;//$_GET["milestones"];
+?>	
 
 
-	//-- Pretend everything went well 
-	$success = true;
 
-	/*----------------------------------
-		FINALIZE
-	----------------------------------*/
-	if ($success == true) {
-		 //header( 'Location:teacher.php?id='.$data['id']."&success_msg={$success_msg}"); 
-		 die();
-	} else {
-		$errors['form'][] = "Error on form";
-		include('teacher.php');
-		die();
-}
+            <h1>Main Task</h1>
 
+            <form class="form-horizontal" name="teacher_add_task" action="teacher_add_task.do.php" method="post">
+                <label class="control-label">Title:</label>
+                <div class="controls">
+                    <input type="text" name="tsummary" id="tsummary" placeholder="What would you like to call this?">
+                </div>
+                <label class="control-label">Description:</label>
+                <div class="controls">
+                    <textarea rows="3" id="tdescription" name="tdescription"></textarea>
+                </div>
+				
+				
+<?php			for($i = 0; $i < $milestonenum; $i++)
+				{?>
+                <div class="task">
+                    <div class="form-horizontal">
+                        	<h2>Milestone <?php echo ($i+1)?></h2>
+
+                        <label class="control-label">Title:</label>
+                        <div class="controls">
+                            <input type="text" name="msummary<?php echo ($i+1); ?>" id="msummary<?php echo ($i+1); ?>" placeholder="What would you like to call this?">
+                        </div>
+                        <label class="control-label">Due Date:</label>
+                        <div class="controls">
+                            <input type="date" id="datepicker<?php echo ($i+1); ?>" name="datepicker<?php echo ($i+1); ?>" placeholder="What date will this be due?">
+						</div>	
+						<label class="control-label">Time:</label>
+						<div class="controls">
+							<input type="time" id="timepicker<?php echo ($i+1); ?>" name="timepicker<?php echo ($i+1); ?>" placeholder="What time will this be due?">
+                        </div>
+                        <label class="control-label">Description:</label>
+                        <div class="controls">
+                            <textarea rows="3" id="mdescription<?php echo ($i+1); ?>" name="mdescription<?php echo ($i+1); ?>"></textarea>
+                        </div>
+                    </div>
+                </div>
+<?php			}?>
+				<div align=center>
+					<input type="hidden" id="milestones" name="milestones" value="<?php echo $milestonenum ?>">
+					<input type="submit" id="create" name="create" class="btn btn-large btn-success" value="Create">
+                </div>
+				</form>
+        </div>
+		
+<?php
+	require($prefix."/includes/foot.php");
 ?>
