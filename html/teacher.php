@@ -29,19 +29,27 @@
 
 
 		$calList = $cal->calendarList->listCalendarList($optParams);
-		//print("<pre>");
-		//print_r(get_class_methods("Google_CalendarListEntry"));
-		//print("</pre>");
-
 		/*
-		foreach($calList["items"] as $calendar) {
-			echo $calendar->getSummary();
-		}
-
-		print "<h1>Calendar List</h1><pre>" . print_r($calList, true) . "</pre>";?>
+		print("<pre>");
+		print_r(get_class_methods("Google_CalendarListEntry"));
+		print("</pre>");
 		*/
+
+		echo "<ul>";
+		foreach($calList->getItems() as $calendar) {
+			$cal_tag = "CSUN-ST-Planner2 - ";
+			$cal_title = $calendar->getSummary();
+			$id = $calendar->getId();
+
+			if (strstr($cal_title, $cal_tag)) {
+				//-- Only print out calendars that contain "CSUN-ST-Planner2 - "
+				echo "<li><a href=\"teacher_student_view.php?calendar_id={$id}\">".str_replace($cal_tag,"",$cal_title)."</a></li>";
+			}
+		}
+		echo "</ul>";
+
 		?>
-	
+		
 		<form name="input" action="teacher.do.php" method="post">
         <fieldset>
           <legend>Add New Student</legend>

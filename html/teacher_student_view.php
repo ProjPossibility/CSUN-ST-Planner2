@@ -19,11 +19,20 @@
 	  $client->setAccessToken($_SESSION['token']);
 	}
 	
+	//-- If calendar_id is passed set session
+	if (isset($_GET['calendar_id'])) {
+		$_SESSION['calendar_id'] = $_GET['calendar_id'];
+	}
+
+
+
 	//-- All Systems's Go
 	if ($client->getAccessToken()) {
 	
 		//-- Get the current class calendar ID
 		$class_calendar_id = getClassCalendarID();
+
+		echo "cal:".$class_calendar_id;
 
 		//-- Set the Params on the search
 		$optParams = array(
