@@ -41,10 +41,10 @@
 			$event = $cal->events->get($class_calendar_id, $event_id);
 
 		} else {
-			//-- Get data of event due soonest
+			//-- Get data of event due soonest --//
 
 			//-- Get all the events for the selected class calendar
-			$eventsOjb = $cal->events->listEvents($class_calendar_id);
+			$eventsObj = $cal->events->listEvents($class_calendar_id);
 
 			/*
 			print_r("<pre>");
@@ -52,24 +52,22 @@
 			print_r("</pre>");
 			*/
 			
-
 			//-- Get an array of Event
-			$events = $eventsOjb->getItems();
+			$events = $eventsObj->getItems();
 			$event = $events[0];
 
 		}
 
-		
-		
 		//-- Set Page Data
 		$event_id = $event->getId();
 		$summary = $event->getSummary();
 		$eTag =  $event->getEtag();
 		$description = $event->getDescription();
-		$startDateObj = $event->getStart();
-		$dueDate = $startDateObj->getDateTime();
-		$timeLeft = $event->getStart();
+		$due_date = new DateTime($event->getStart()->getDateTime());	
 		$htmlLink =  $event->getHtmlLink();
+
+		//-- Get difference between due date and today's date 
+		$timeLeft = $due_date->diff(new DateTime(date("Y-m-d H:i:s")));
 
 		/*
 		print_r("<pre>");
@@ -92,10 +90,10 @@
 	
 		<div class="task">
 			<p>
-				 <strong>Due date:</strong> <?php echo $dueDate; ?>
+				 <strong>Due date:</strong> <?php echo $due_date->format("l F m, Y"); ?>
 			</p>
 			<p class="text-muted">
-				 <strong>Time left:</strong> [timeleft]
+				 <strong>Time left:</strong> <?php echo  $timeLeft->d." days  and " . $timeLeft->h." hours ";  ?>
 			</p>
 			<p class="lead">
 				 <strong>Description:</strong> <?php echo str_replace("\n","<br/>",$description); ?>
