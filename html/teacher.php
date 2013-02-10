@@ -2,17 +2,36 @@
 	$prefix = ".";
 	$section = "root";
 	$page = "teacher";
-	$subtitle = "Teacher";
+	$subtitle = "Teacher's Home";
 	
 	require($prefix."/includes/vars.php");	
 	require($prefix."/includes/head.php");
 
+
+	$client = new Google_Client();
+	$client->setUseObjects(true); 
+
+	//-- Create Calendar Service Object
+	$cal = new Google_CalendarService($client);
+
+	//-- Set Access Token for access
+	if (isset($_SESSION['token'])) {
+	  $client->setAccessToken($_SESSION['token']);
+	}
+
+	//-- All Systems's Go
+	if ($client->getAccessToken()) { ?>
+
+	This is the test.
+
+	<?php 	
+	} else {
+	  $authUrl = $client->createAuthUrl();
+	  print "<a class='login' href='$authUrl'>Connect Me!</a>";
+	}
+
 ?>	
 
-<ol>
-	<li><a href="teacher_add_task.php">Teacher Add Task</a></li>
-	<li><a href="student.php">Student</a></li>
-</ol>
 
 <?php
 	require($prefix."/includes/foot.php");
