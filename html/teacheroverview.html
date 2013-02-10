@@ -10,7 +10,8 @@
 	<div class="page">
 		<h1>Student-Teacher Overview</h2>
 		<div class="input-append">
-		<input type="text" id="milestones appendedInputButtons" class="input-mini" name="milestones" placeholder="#">
+		<label for="milestones">Number of milestones:</label>
+		<input type="number" id="milestones" class="input-mini appendedInputButtons" min="0" max="15" name="milestones" placeholder="#">
 		<button type="button" id="create" name="create" class="btn">Add new task</button>
         </div>
 		<h3>Current Tasks</h3>
@@ -46,6 +47,14 @@
             </table>
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
+		<script src="/resources/demos/external/jquery.mousewheel.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+		  <script>
+  $(function() {
+    var spinner = $( "#milestones" ).spinner({ min: 0 });
+    $( "button" ).button();
+  });
+  </script>
     </body>
 
 </html>
