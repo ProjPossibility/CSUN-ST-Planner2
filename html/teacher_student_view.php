@@ -88,6 +88,15 @@
 						//-- Set Page Data
 						$id = $event->getId();
 						$summary = $event->getSummary();
+						if(strlen($summary) > 13 && strstr($summary, "::: COMPLETED"))
+						{
+							$completedTag = substr($summary, 0, strlen($summary)-strlen("::: COMPLETED"));
+							$completed = true;
+						} else
+						{
+							$completedTag = $summary;
+							$completed = false;
+						}
 						$eTag =  $event->getEtag();
 						$description = $event->getDescription();
 						$startDateObj = $event->getStart();
@@ -105,8 +114,8 @@
 						$htmlLink =  $event->getHtmlLink(); ?>
 			
 				
-	                	<tr <?php echo ($PassedDue)?"class=\"error\"":""?> ">
-		                <td><?php echo $summary; ?></td>
+	                	<tr <?php if($completed) echo "class=\"success\""; else echo ($PassedDue)?"class=\"error\"":""; ?> ">
+		                <td><?php echo $completedTag; ?></td>
 		                <td><?php echo $dueDate->format("Y-m-d H:i:s"); ?></td>
 		                <td><?php
 						echo  $timeLeft->d." days  and " . $timeLeft->h." hours "; ?>
