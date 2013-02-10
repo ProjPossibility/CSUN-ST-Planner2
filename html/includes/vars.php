@@ -15,4 +15,6 @@ if (!isset($page)) {$page = '';}
 if (!isset($section)) {$section = '';}
 if (!isset($subpage)) {$subpage = '';}
 
+session_start();
+
 ?>

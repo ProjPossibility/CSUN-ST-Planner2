@@ -5,10 +5,6 @@
 	$subtitle = "Student View";
 	
 	require($prefix."/includes/vars.php");	
-	
-
-	session_start();
-
 	require($prefix."/includes/head.php");
 
 
@@ -52,13 +48,12 @@
 		$htmlLink =  $event[0]->getHtmlLink();
 
 
-		/*
+	
 		print_r("<pre>");
 		print_r(get_class_methods("Google_Event"));
 		print_r($event);
 		print_r("</pre>");
-		*/
-
+		
 		
 	
 } else {
