@@ -7,30 +7,32 @@
 	require($prefix."/includes/vars.php");	
 	
 
-	session_start();
-
-	require($prefix."/includes/head.php");
-
+	
 	$client = new Google_Client();
 	$client->setUseObjects(true); 
 	$client->setApplicationName("Google Calendar PHP Starter Application");
 
-// Visit https://code.google.com/apis/console?api=calendar to generate your
-// client id, client secret, and to register your redirect uri.
-// $client->setClientId('insert_your_oauth2_client_id');
-// $client->setClientSecret('insert_your_oauth2_client_secret');
-// $client->setRedirectUri('insert_your_oauth2_redirect_uri');
-// $client->setDeveloperKey('insert_your_developer_key');
-$cal = new Google_CalendarService($client);
-if (isset($_GET['logout'])) {
-  unset($_SESSION['token']);
-}
+	// Visit https://code.google.com/apis/console?api=calendar to generate your
+	// client id, client secret, and to register your redirect uri.
+	// $client->setClientId('insert_your_oauth2_client_id');
+	// $client->setClientSecret('insert_your_oauth2_client_secret');
+	// $client->setRedirectUri('insert_your_oauth2_redirect_uri');
+	// $client->setDeveloperKey('insert_your_developer_key');
+	$cal = new Google_CalendarService($client);
+	if (isset($_GET['logout'])) {
+	  unset($_SESSION['token']);
+	}
 
-if (isset($_GET['code'])) {
-  $client->authenticate($_GET['code']);
-  $_SESSION['token'] = $client->getAccessToken();
-  header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
-}
+	if (isset($_GET['code'])) {
+	  $client->authenticate($_GET['code']);
+	  $_SESSION['token'] = $client->getAccessToken();
+	  header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
+	}
+
+
+
+	require($prefix."/includes/head.php");
+
 
 if (isset($_SESSION['token'])) {
   $client->setAccessToken($_SESSION['token']);
@@ -38,28 +40,8 @@ if (isset($_SESSION['token'])) {
 
 if ($client->getAccessToken()) {
 
-	//$classCal = $cal->calendars->get(getClassCalendarID());
-
-	//$events = $cal->events->listEvents('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com');
-/*
-	while(true) {
-	  foreach ($events->getItems() as $event) {
-	    echo $event->getSummary();
-	  }
-	  $pageToken = $events->getNextPageToken();
-	  if ($pageToken) {
-	    $optParams = array('pageToken' => $pageToken);
-	    $events = $service->events->listEvents('primary', $optParams);
-	  } else {
-	    break;
-	  }
-	} 
-*/
-
-	//print "<h1>SS12 Calendar List</h1><pre>" . print_r($classCal, true) . "</pre>";
-
 	$calList = $cal->calendarList->listCalendarList();
-	print "<h1>Calendar List</h1><pre>" . print_r($calList, true) . "</pre>";
+	echo "Logged In";
 
 	$_SESSION['token'] = $client->getAccessToken();
 } else {
@@ -69,7 +51,6 @@ if ($client->getAccessToken()) {
 
 ?>	
 
-This is a page
 
 <?php
 	require($prefix."/includes/foot.php");
