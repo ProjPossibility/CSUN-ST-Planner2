@@ -99,7 +99,9 @@
 			</div>
 			
 		</form>
-<?php } ?>	
+<?php } else {
+	$_SESSION['entry_page'] = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+}?>	
 
 
 <?php
