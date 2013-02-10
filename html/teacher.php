@@ -22,16 +22,9 @@
 	//-- All Systems's Go
 	if ($client->getAccessToken()) { ?>
 
-	This is the test.
+		This is the test.
 
-	<?php 	
-	} else {
-	  $authUrl = $client->createAuthUrl();
-	  print "<a class='login' href='$authUrl'>Connect Me!</a>";
-	}
-
-?>	
-
+	<?php } ?>	
 
 <?php
 	require($prefix."/includes/foot.php");
