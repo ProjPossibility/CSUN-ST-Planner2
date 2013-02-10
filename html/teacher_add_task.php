@@ -7,7 +7,7 @@
 	require($prefix."/includes/vars.php");	
 	require($prefix."/includes/head.php");
 	
-	$milestonenum = $_GET["milestones"];
+	$milestonenum = 2;//$_GET["milestones"];
 	print_r($_GET);
 ?>	
 
@@ -38,7 +38,7 @@
                         </div>
                         <label class="control-label">Due date/time:</label>
                         <div class="controls">
-                            <input type="text" id="datetimepicker<?php echo ($i+1); ?>" name="datetimepicker<?php echo ($i+1); ?>" placeholder="What date will this be due?">
+                            <input type="datetime" id="datetimepicker<?php echo ($i+1); ?>" name="datetimepicker<?php echo ($i+1); ?>" placeholder="What date will this be due?">
                         </div>
                         <label class="control-label">Description:</label>
                         <div class="controls">
