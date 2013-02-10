@@ -26,10 +26,14 @@
 		$class_calendar_id = getClassCalendarID();
 
 		//-- Set the Params on the search
-		$optParams = array();
+		$optParams = array(
+					'orderBy' => 'starttime',
+					'singleEvents' => 'true'
+				);
 					
 		//-- Get all the events for the selected class calendar
-		$eventsObj = $cal->events->listEvents($class_calendar_id,$optParams);
+		$eventsObj = $cal->events->listEvents($class_calendar_id, $optParams);
+
 		
 ?>
 		<div class="page">
@@ -60,9 +64,14 @@
 					$dueDate = new DateTime($event->getStart()->getDateTime());
 					$timeLeft = new DateTime(date("Y-m-d H:i:s"));
 					if($dueDate > $timeLeft)
+					{
 						$timeLeft = $dueDate->diff($timeLeft);
-					else
+						$PassedDue = false;
+					} else
+					{
 						$timeLeft = $timeLeft->diff($timeLeft);
+						$PassedDue = true;
+					}
 					$htmlLink =  $event->getHtmlLink();
 					//$sub1 = substr($dueDate);
 					
@@ -70,7 +79,7 @@
 ?>
 		
 			
-                <tr>
+                <tr <?php echo ($PassedDue)?"class=\"error\"":""?> ">
 	                <td><?php echo $summary; ?></td>
 	                <td><?php echo $dueDate->format("Y-m-d H:i:s"); ?></td>
 	                <td>
