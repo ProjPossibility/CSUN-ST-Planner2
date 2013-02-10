@@ -20,7 +20,7 @@
                 </div>
                 <label class="control-label" for="tdate">Due Date:</label>
                 <div class="controls">
-                    <input type="date" name="tdate" id="tdate" placeholder="What date will this be due?">
+                    <input type="text" name="tdate" id="tdate">
                 </div>
                 <label class="control-label" for="tdescription">Description:</label>
                 <div class="controls">
@@ -34,9 +34,9 @@
                         <div class="controls">
                             <input type="text" name="msummary" id="msummary" placeholder="What would you like to call this?">
                         </div>
-                        <label class="control-label" for="datetimepicker">Due date/time:</label>
+                        <label class="control-label" for="datetimepicker">Due <abbr title="attribute">Date:</abbr></label>
                         <div class="controls">
-                            <input type="text" id="mdate" name="mdate" placeholder="What date will this be due?">
+                            <input type="text" id="mdate" name="mdate">
                         </div>
                         <label class="control-label" for="mdescription">Description:</label>
                         <div class="controls">
@@ -44,14 +44,14 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" id="create" name="create" class="btn btn-large btn-success">Create</button>
+                <button type="button" id="create" name="create" class="btn btn-large btn-center btn-success">Create</button>
         </div>
         <script src="http://code.jquery.com/jquery.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js"></script> 
 		<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
 		  <script>
   $(function() {
-    $('#datepicker').datepicker();
+	$( "#mdate, #tdate" ).datepicker();
   });
   </script>
     </body>
