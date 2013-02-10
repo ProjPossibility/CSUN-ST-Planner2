@@ -27,13 +27,8 @@
 					);
 
 
-
+		//-- Get All CSUN-ST-Planner2 Calendars
 		$calList = $cal->calendarList->listCalendarList($optParams);
-		/*
-		print("<pre>");
-		print_r(get_class_methods("Google_CalendarListEntry"));
-		print("</pre>");
-		*/
 
 		echo "<ul>";
 		foreach($calList->getItems() as $calendar) {
