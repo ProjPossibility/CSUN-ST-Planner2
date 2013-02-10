@@ -23,7 +23,7 @@
 	//-- All Systems's Go
 	if ($client->getAccessToken()) { 
 		$optParams = array(
-					//'minAccessRole' => "owner"
+					'minAccessRole' => "writer"
 					);
 
 
