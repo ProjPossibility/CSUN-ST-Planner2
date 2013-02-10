@@ -10,38 +10,57 @@
 	$client->setUseObjects(true);
 	$client->setApplicationName("Application");
 	$cal = new Google_CalendarService($client);
-	
-	if (isset($_GET['logout'])) {
-		unset($_SESSION['token']);
-	}
-
-	if (isset($_GET['code'])) {
-		$client->authenticate($_GET['code']);
-		$_SESSION['token'] = $client->getAccessToken();
-		header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
-	}
 
 	if (isset($_SESSION['token'])) {
 		$client->setAccessToken($_SESSION['token']);
 	}
 
 	if ($client->getAccessToken()) {
-	
+		$success = true;
+		
 		//-- Get main task post data
 		$main_title = $_POST['tsummary'];
 		$main_objective = $_POST['tdescription'];
 		$milestones = $_POST['milestones'];
-
+		
+		if(empty($main_title)){
+			
+		}
+		
+		
 		for ($i = 0; $i < $milestones; $i++)
 		{
 			//-- Get individual milestone post data
 			$milestone_title = $_POST['msummary' . ($i+1)];
 			$time = $_POST['timepicker' . ($i+1)];
 			$date = $_POST['datepicker' . ($i+1)];
+			$milestone_objective = $_POST['mdescription'. ($i+1)];
+			echo $time;
+			//-- Check for valid date input
+			if(! validateDate($date)){
+				$success = false;
+				echo 'Bad date';
+				break;
+			}
+			else if(empty($milestone_title)){
+				$success = false;
+				echo 'bad title';
+				break;
+			}
+			else if(empty($time)){
+				$success = false;
+				echo 'bad time';
+				break;
+			}
+			else if(empty($milestone_objective)){
+				$success = false;
+				echo 'bad objective';
+				break;
+			}
+			
+			
 			
 			$due_date = new DateTime("$date $time");
-			$milestone_objective = $_POST['mdescription'. ($i+1)];
-			
 			$full_title = "$main_title-$milestone_title";
 				
 			$start_time = $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
@@ -49,17 +68,17 @@
 			$end_time =  $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
 			
 			//-- Create event and add to calendar
-			$event = new Google_Event();
-			$event->setSummary($full_title);
-			$event->setDescription($main_objective . ":\n" . $milestone_objective);
-			$start = new Google_EventDateTime();
-			$start->setDateTime($start_time);
-			$end = new Google_EventDateTime();
-			$end->setDateTime($end_time);
-			$event->setStart($start);
-			$event->setEnd($end);
+			// $event = new Google_Event();
+			// $event->setSummary($full_title);
+			// $event->setDescription($main_objective . ":\n" . $milestone_objective);
+			// $start = new Google_EventDateTime();
+			// $start->setDateTime($start_time);
+			// $end = new Google_EventDateTime();
+			// $end->setDateTime($end_time);
+			// $event->setStart($start);
+			// $event->setEnd($end);
 
-			$cal->events->insert(getClassCalendarID(), $event);
+			// $cal->events->insert(getClassCalendarID(), $event);
 		}
 		$_SESSION['token'] = $client->getAccessToken();
 	}
@@ -68,19 +87,25 @@
 		print "<a class='login' href='$authUrl'>Connect Me!</a>";
 	}
 
-
-	//-- Pretend everything went well 
-	$success = true;
-
 	/*----------------------------------
 		FINALIZE
 	----------------------------------*/
 	if ($success == true) {
-		 //header( 'Location:teacher_add_task.php?id='.$data['id']."&success_msg={$success_msg}"); 
+		// header( 'Location:teacher_student_view.php?id='.$data['id']."&success_msg={$success_msg}"); 
 		 die();
 	} else {
 		$errors['form'][] = "Error on form";
-		include('teacher.php');
+		//header( 'Location:teacher_add_task.php?id='.$data['id']); 
+		//include('teacher_add_task.php');
 		die();
 }
+
+	function validateDate($date)
+	{
+		$year = substr($date, 0, 4);
+		$month = substr($date, 5,2);
+		$day = substr($date, 8, 2);
+		
+		return checkdate($month, $day, $year);
+	}
 ?>
