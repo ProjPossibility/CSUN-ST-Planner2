@@ -17,15 +17,10 @@ if(empty($data['student_email'])) {
 	$errors[][] = "Student email is required";
 }
 
-
-
-
-
 if(isset($errors)) {
 	include('teacher.php');
 	die();
 }
-
 
 /*----------------------------------
 	GOOGLE STUFF
@@ -51,9 +46,16 @@ $success = true;
 
 //-- All Systems's Go
 if ($client->getAccessToken()) {
+	$calendar = new Google_Calendar();
+  	$calendar->setSummary("CSUN-ST-Planner2 - ".$data['student_name']);
+  	$calendar->setTimeZone('America/Los_Angeles');
+  	$calendar->setDescription("CSUN-ST-Planner2 Project");
 
-	//-- All my stuff here
+  	$createdCalendar = $cal->calendars->insert($calendar);
 
+	//-- Clear Data
+	$data['student_name'] = "";
+	$data['student_email'] = "";
 } else {
 	$errors[][] = "Google Auth Error.";
 }
