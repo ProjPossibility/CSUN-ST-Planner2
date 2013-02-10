@@ -6,11 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
         <link href="css/bootstrap.css" rel="stylesheet" media="screen">
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
     </head>
     
     <body>
-        <div class="page span7">
+        <div class="page span8">
             	<h1>Main Task</h1>
 
             <form class="form-horizontal">
@@ -20,7 +20,8 @@
                 </div>
                 <label class="control-label" for="tdate">Due Date:</label>
                 <div class="controls">
-                    <input type="date" name="tdate" id="tdate" placeholder="What date will this be due?">
+                    <input type="text" name="tdate" id="tdate"><span class="help-inline">(Format 05/22/2013)</span>
+
                 </div>
                 <label class="control-label" for="tdescription">Description:</label>
                 <div class="controls">
@@ -34,9 +35,10 @@
                         <div class="controls">
                             <input type="text" name="msummary" id="msummary" placeholder="What would you like to call this?">
                         </div>
-                        <label class="control-label" for="datetimepicker">Due date/time:</label>
+                        <label class="control-label" for="datetimepicker">Due Date:</label>
                         <div class="controls">
-                            <input type="text" id="mdate" name="mdate" placeholder="What date will this be due?">
+                            <input type="text" id="mdate" name="mdate"><span class="help-inline">(Format 05/22/2013)</span>
+
                         </div>
                         <label class="control-label" for="mdescription">Description:</label>
                         <div class="controls">
@@ -44,16 +46,16 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" id="create" name="create" class="btn btn-large btn-success">Create</button>
+                <button type="button" id="create" name="create" class="btn btn-block btn-success">Create</button>
         </div>
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
-		<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
-		  <script>
-  $(function() {
-    $('#datepicker').datepicker();
-  });
-  </script>
+        <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+        <script>
+            $(function () {
+                $("#mdate, #tdate").datepicker();
+            });
+        </script>
     </body>
 
 </html>

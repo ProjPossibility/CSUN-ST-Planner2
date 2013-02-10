@@ -732,6 +732,12 @@ a.text-success:focus {
   text-align: center;
 }
 
+.btn-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+ }
+
 h1,
 h2,
 h3,
@@ -3462,10 +3468,13 @@ input[type="button"].btn-block {
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462', endColorstr='#ff51a351', GradientType=0);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+<<<<<<< HEAD
  /* display: block;
   margin-left: auto;
   margin-right: auto
   */  
+=======
+>>>>>>> 7c1a9954c16b8b2438924167b608a05886df5321
 }
 
 .btn-success:hover,

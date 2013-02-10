@@ -8,7 +8,6 @@
 	require($prefix."/includes/head.php");
 	
 	$milestonenum = $_GET["milestones"];
-	print_r($_GET);
 ?>	
 
 
@@ -36,9 +35,13 @@
                         <div class="controls">
                             <input type="text" name="msummary<?php echo ($i+1); ?>" id="msummary<?php echo ($i+1); ?>" placeholder="What would you like to call this?">
                         </div>
-                        <label class="control-label">Due date/time:</label>
+                        <label class="control-label">Due Date:</label>
                         <div class="controls">
-                            <input type="text" id="datetimepicker<?php echo ($i+1); ?>" name="datetimepicker<?php echo ($i+1); ?>" placeholder="What date will this be due?">
+                            <input type="date" id="datepicker<?php echo ($i+1); ?>" name="datepicker<?php echo ($i+1); ?>" placeholder="What date will this be due?">
+						</div>	
+						<label class="control-label">Time:</label>
+						<div class="controls">
+							<input type="time" id="timepicker<?php echo ($i+1); ?>" name="timepicker<?php echo ($i+1); ?>" placeholder="What time will this be due?">
                         </div>
                         <label class="control-label">Description:</label>
                         <div class="controls">
@@ -52,10 +55,6 @@
                 </div>
 				</form>
         </div>
-        <script src="http://code.jquery.com/jquery.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-
-		
 		
 <?php
 	require($prefix."/includes/foot.php");
