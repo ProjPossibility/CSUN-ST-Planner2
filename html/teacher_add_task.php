@@ -9,6 +9,37 @@
 	
 	$milestonenum = $_GET["milestones"];
 
+	$client = new Google_Client();
+	$client->setUseObjects(true); 
+	$client->setApplicationName("Google Calendar PHP Starter Application");
+	$service = new Google_CalendarService($client);
+	
+	if (isset($_GET['logout'])) {
+		unset($_SESSION['token']);
+	}
+	
+	if (isset($_GET['code'])) {
+		$client->authenticate($_GET['code']);
+		$_SESSION['token'] = $client->getAccessToken();
+		header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
+	}
+	
+	if (isset($_SESSION['token'])) {
+		$client->setAccessToken($_SESSION['token']);
+	}
+
+	if ($client->getAccessToken()) {
+		$main_title = "Main Title";
+		$main_due_date = new Google_EventDateTime();
+		$main_desc = "Description";
+		$m1_title;
+		$m1_due_date = new Google_EventDateTime();
+		$m1_desc;
+		$m2_title;
+		$m2_due_date = new Google_EventDateTime();
+		$m2_desc =  "Milestone 2";
+	
+	}
 ?>	
 
 
