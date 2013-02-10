@@ -42,7 +42,7 @@
 						</div>	
 						<label class="control-label">Time:</label>
 						<div class="controls">
-							<input type="text" class="time" name="timepicker<?php echo ($i+1); ?>"><span class="help-inline">(Format 08:29 AM)</span>
+							<input type="text" class="time" name="timepicker<?php echo ($i+1); ?>"><span class="help-inline">(Format 08:29am)</span>
                         </div>
                         <label class="control-label">Description:</label>
                         <div class="controls">
@@ -58,9 +58,17 @@
 			</form>
         </div>
         <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
-        <script>
+        <script src="js/jquery.timepicker.js"></script>
+        <script src="js/jquery-ui-timepicker.addon.js"></script>
+        
+		<script>
             $(function () {
                 $(".date").datepicker();
+            });
+        </script>
+		<script>
+            $(function () {
+                $(".time").timepicker();
             });
         </script>
 		
