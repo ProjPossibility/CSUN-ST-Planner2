@@ -43,47 +43,35 @@
 		$main_title = $_POST['tsummary'];
 		$main_objective = $_POST['tdescription'];
 		$milestones = $_POST['milestones'];
-		echo $milestones;
-		print_r($_POST);
+
 		for ($i = 0; $i < $milestones; $i++)
 		{
 			//-- Get individual milestone data
 			$milestone_title = $_POST['msummary' . ($i+1)];
 			$time = $_POST['timepicker' . ($i+1)];
-		
-			// $due_date = new DateTime($_POST['datepicker'.($i+1)]);
-			// $milestone_objective = $_POST['mdescription'];
-				echo $time;
-				echo $milestone_title;
-			// $mtitle = "$main_title-$milestone_title";
+			$date = $_POST['datepicker' . ($i+1)];
 			
-			// echo $msummary;
-			// echo '<br>';
-			// echo $due_date->format("Y-m-d H:i:s");
-			// echo '<br>';
-			// echo $mtitle;
-			// echo '<br>';
+			$due_date = new DateTime("$date $time");
+			$milestone_objective = $_POST['mdescription'. ($i+1)];
 			
-			// $starttime = $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s");
-			// $due_date->modify("+10 minutes");
-			// $end_time =  $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s");
-			// echo $starttime;
-			// echo "<br>";
+			$full_title = "$main_title-$milestone_title";
 			
-			// echo $end_time;
-			// echo "<br>";
+	
+			$start_time = $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
+			$due_date->modify("+10 minutes");
+			$end_time =  $due_date->format("Y-m-d")  . 'T' . $due_date->format("H:i:s") . "-08:00";
 			
-			/*
+			//-- Create event and add to calendar
 			$event = new Google_Event();
-			$event->setSummary($main_title . "-" . $milestone_title[$i]);
+			$event->setSummary($full_title);
 			$start = new Google_EventDateTime();
-			$start->setDateTime($due_dates[$i]);
+			$start->setDateTime($start_time);
 			$end = new Google_EventDateTime();
-			$end->setDateTime($end_dates[$i]);
+			$end->setDateTime($end_time);
 			$event->setStart($start);
 			$event->setEnd($end);
 			echo $event->getSummary();
-			$cal->events->insert('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com', $event);*/
+			$cal->events->insert('uhqfb67gk3di9696tht4rrshug@group.calendar.google.com', $event);
 		}
 		$_SESSION['token'] = $client->getAccessToken();
 	}
