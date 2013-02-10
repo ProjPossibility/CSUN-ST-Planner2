@@ -1,7 +1,7 @@
 <?php
 $prefix = ".";
-require_once '../../src/Google_Client.php';
-require_once '../../src/contrib/Google_CalendarService.php';
+require_once '../src/Google_Client.php';
+require_once '../src/contrib/Google_CalendarService.php';
 //require($prefix."/includes/vars.php");	
 //require($prefix."/includes/head.php");
 
