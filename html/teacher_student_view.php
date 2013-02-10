@@ -66,8 +66,12 @@
                 <tr>
 	                <td><?php echo $summary; ?></td>
 	                <td><?php echo $startDateObj->getDateTime(); ?></td>
-	                <td><?php echo //URSULA WILL DO IT// ?></td>
-	                <td><a href="<?php echo $htmlLink; ?>"><?php echo $htmlLink; ?></a></td>
+	                <td>
+<?php
+$today = date("Y-m-d H:i:s.m");
+echo $today?>
+</td>
+	                <td><a href="<?php echo $htmlLink; ?>">View Event</a></td>
                 </tr>
 <?php 	
 }
