@@ -38,11 +38,11 @@
                         </div>
                         <label class="control-label">Due Date:</label>
                         <div class="controls">
-                            <input type="date" id="datepicker<?php echo ($i+1); ?>" name="datepicker<?php echo ($i+1); ?>" placeholder="What date will this be due?">
+                            <input type="text" id="mdate" name="datepicker<?php echo ($i+1); ?>" placeholder="What date will this be due?">
 						</div>	
 						<label class="control-label">Time:</label>
 						<div class="controls">
-							<input type="time" id="timepicker<?php echo ($i+1); ?>" name="timepicker<?php echo ($i+1); ?>" placeholder="What time will this be due?">
+							<input type="text" id="tdate" name="timepicker<?php echo ($i+1); ?>" placeholder="What time will this be due?">
                         </div>
                         <label class="control-label">Description:</label>
                         <div class="controls">
@@ -57,7 +57,7 @@
                 </div>
 			</form>
         </div>
-		<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
         <script>
             $(function () {
                 $("#mdate, #tdate").datepicker();
