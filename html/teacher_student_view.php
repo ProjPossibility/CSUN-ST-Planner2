@@ -124,7 +124,7 @@
 		                <td><?php
 							echo  $timeLeft->d." days  and " . $timeLeft->h." hours "; ?>
 						</td>
-		                <td><a href="<?php echo $htmlLink; ?>">View Event</a></td>
+		                <td><a href="student.php?event_id=<?php echo $id;?>">View Event</a></td>
 						<td><?php 
 							echo ($completed)?"Complete":"Incomplete"; 
 							?>
