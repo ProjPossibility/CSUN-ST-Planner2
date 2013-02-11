@@ -75,7 +75,7 @@
 	            <thead>
 	                <tr>
 		                <th>Title</th>
-		                <th>Start Date</th>
+		                <th>Due Date</th>
 		                <th>Time Left</th>
 		                <th>Link</th>
 						<th>Status</th>
