@@ -10,7 +10,7 @@
 	?>
 		<h2>Select Role:</h2>
 		<ul class="thumbnails">
-			<li class="span2 text-center">
+			<li class="span3 text-center">
 			<a href="student.php">
 			<div class="thumbnail">
 				<object data="img/student.svg" width="128" height="150" type="image/svg+xml">
@@ -20,7 +20,7 @@
 			</div>
 			</a>
 			</li>
-			<li class="span2 text-center">
+			<li class="span3 text-center">
 			<a href="teacher.php">
 			<div class="thumbnail">
 				<object data="img/teacher.svg" width="" height="150"  type="image/svg+xml">
