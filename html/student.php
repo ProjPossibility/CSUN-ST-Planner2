@@ -61,8 +61,15 @@
 		$htmlLink =  $event->getHtmlLink();
 
 		//-- Get difference between due date and today's date 
-		$timeLeft = $due_date->diff(new DateTime(date("Y-m-d H:i:s")));
-
+		$timeLeft = new DateTime(date("Y-m-d H:i:s"));
+		if($due_date > $timeLeft)
+		{
+			$timeLeft = $due_date->diff($timeLeft);
+		} else
+		{
+			$timeLeft = $timeLeft->diff($timeLeft);
+		}
+						
 		?>	
 
 		<?php if(isset($errors)) {?>
