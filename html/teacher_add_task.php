@@ -63,7 +63,7 @@
 					<input type="submit" id="create" name="create" class="btn btn-large btn-success" value="Create">
                 </div>
 			</form>
-        </div>
+        
         <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
         <script src="js/jquery.timepicker.js"></script>
         <script src="js/jquery-ui-timepicker.addon.js"></script>
