@@ -2,7 +2,7 @@
 	$prefix = ".";
 	$section = "root";
 	$page = "teacher";
-	$subtitle = "Teacher Add Task";
+	$subtitle = "Teacher Add New Project";
 	
 	require_once($prefix."/includes/vars.php");	
 	require_once($prefix."/includes/head.php");
@@ -20,7 +20,7 @@
 				</div>
 				<?php } ?>
 
-            <h1>Main Task</h1>
+            <h2>Main Task</h2>
 	
             <form class="form-horizontal" name="teacher_add_task" action="teacher_add_task.do.php" method="post">
                 <label class="control-label">Title:</label>
@@ -63,7 +63,7 @@
 					<input type="submit" id="create" name="create" class="btn btn-large btn-success" value="Create">
                 </div>
 			</form>
-        </div>
+        
         <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
         <script src="js/jquery.timepicker.js"></script>
         <script src="js/jquery-ui-timepicker.addon.js"></script>
