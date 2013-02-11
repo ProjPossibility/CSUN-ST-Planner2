@@ -21,7 +21,7 @@
    	
 		<div class="page" style="max-width:750px;">
 
-			<nav role="naviation">
+			<nav role="navigation">
 				<div class="navbar">
 					<div class="navbar-inner">
 						<div class="container" style="width: auto;">
