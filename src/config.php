@@ -27,7 +27,7 @@ $apiConfig = array(
     // OAuth2 Settings, you can get these keys at https://code.google.com/apis/console
     'oauth2_client_id' => '445836595861.apps.googleusercontent.com',
     'oauth2_client_secret' => 'Cwmww8_RYxKR15iCE_Ko3NB7',
-    'oauth2_redirect_uri' => 'http://localhost/CSUN-ST-Planner2/html/cal.php',
+    'oauth2_redirect_uri' => 'http://localhost/CSUN-ST-Planner2/html/index.php',
 
     // The developer key, you get this at https://code.google.com/apis/console
     'developer_key' => 'AIzaSyCuDsj0zW67e1iKETE4Jm9_fQncO1aG61Q',
