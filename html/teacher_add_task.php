@@ -23,9 +23,9 @@
             <h1>Main Task</h1>
 	
             <form class="form-horizontal" name="teacher_add_task" action="teacher_add_task.do.php" method="post">
-                <label class="control-label"><?php echo (empty($main_title)) ? "*": "";  ?>Title:</label>
+                <label class="control-label">Title:</label>
                 <div class="controls">
-                    <input type="text" name="tsummary" id="tsummary" placeholder="What is the main project?" value="<?php echo (isset($main_title))?$main_title:"t"; ?>" >
+                    <input type="text" name="tsummary" id="tsummary" placeholder="What is the main project?" value="<?php echo (isset($main_title))?$main_title:""; ?>" >
                 </div>
                 <label class="control-label">Description:</label>
                 <div class="controls">
