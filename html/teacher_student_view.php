@@ -78,6 +78,7 @@
 		                <th>Start Date</th>
 		                <th>Time Left</th>
 		                <th>Link</th>
+						<th>Status</th>
 	                </tr>
 	            </thead>
 	            <tbody>
@@ -114,13 +115,20 @@
 						$htmlLink =  $event->getHtmlLink(); ?>
 			
 				
-	                	<tr <?php if($completed) echo "class=\"success\""; else echo ($PassedDue)?"class=\"error\"":""; ?> ">
+	                	<tr <?php if($completed) 
+							echo "class=\"success\""; else echo ($PassedDue)?"class=\"error\"":""; 
+							?> 
+						>
 		                <td><?php echo $completedTag; ?></td>
 		                <td><?php echo $dueDate->format("Y-m-d H:i:s"); ?></td>
 		                <td><?php
-						echo  $timeLeft->d." days  and " . $timeLeft->h." hours "; ?>
+							echo  $timeLeft->d." days  and " . $timeLeft->h." hours "; ?>
 						</td>
 		                <td><a href="<?php echo $htmlLink; ?>">View Event</a></td>
+						<td><?php 
+							echo ($completed)?"Complete":"Incomplete"; 
+							?>
+						</td>
 	                	</tr>
 					<?php } //-- end for loop
 				} //-- end if blank ?>
