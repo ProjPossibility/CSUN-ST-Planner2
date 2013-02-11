@@ -231,7 +231,7 @@ body {
 }
 
 a {
-  color: #0088cc;
+  color: #5534bc;
   text-decoration: none;
 }
 
@@ -2248,11 +2248,11 @@ table th[class*="span"],
 }
 
 .table tbody tr.success > td {
-  background-color: #dff0d8;
+  background-color: #00b64f;
 }
 
 .table tbody tr.error > td {
-  background-color: #f2dede;
+  background-color: #ff6840	;
 }
 
 .table tbody tr.warning > td {
