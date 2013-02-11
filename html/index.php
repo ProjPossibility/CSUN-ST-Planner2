@@ -23,7 +23,7 @@
 			<li class="span3 text-center">
 			<a href="teacher.php">
 			<div class="thumbnail">
-				<object data="img/teacher.svg" width="" height="150"  type="image/svg+xml">
+				<object data="img/teacher.svg" width="128" height="119"  type="image/svg+xml">
 					<img src="img/teacher.png" width="128" height="119" alt="Teacher"/>
 				</object>
 				<h3>Teacher</h3>
