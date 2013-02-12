@@ -41,19 +41,19 @@
 
                         <label class="control-label">Title:</label>
                         <div class="controls">
-                            <input type="text" name="msummary<?php echo ($i+1); ?>" id="msummary<?php echo ($i+1); ?>" placeholder="What would you like to call this?" value="<?php echo (isset($datamilestones[$i]['msummary']))? $datamilestones[$i]['msummary']:""; ?>">
+                            <input type="text" name="msummary<?php echo ($i+1); ?>" id="msummary<?php echo ($i+1); ?>" placeholder="What would you like to call this?" class="input-xlarge" value="<?php echo (isset($datamilestones[$i]['msummary']))? $datamilestones[$i]['msummary']:""; ?>">
                         </div>
                         <label class="control-label">Due Date:</label>
                         <div class="controls">
-                            <input type="text" class="date" name="datepicker<?php echo ($i+1); ?>" value="<?php echo (isset($datamilestones[$i]['datepicker']))? $datamilestones[$i]['datepicker']:""; ?>" ><span class="help-inline">(Format 05/22/2013)</span>
+                            <input type="text" class="date" name="datepicker<?php echo ($i+1); ?>" class="input-small" value="<?php echo (isset($datamilestones[$i]['datepicker']))? $datamilestones[$i]['datepicker']:""; ?>" ><span class="help-inline">(Format 05/22/2013)</span>
 						</div>	
 						<label class="control-label">Time:</label>
 						<div class="controls">
-							<input type="text" class="time" name="timepicker<?php echo ($i+1); ?>" value="<?php echo (isset($datamilestones[$i]['timepicker']))? $datamilestones[$i]['timepicker']:""; ?>"><span class="help-inline">(Format 08:29am)</span>
+							<input type="text" class="time input-small" type="time" name="timepicker<?php echo ($i+1); ?>" value="<?php echo (isset($datamilestones[$i]['timepicker']))? $datamilestones[$i]['timepicker']:""; ?>"><span class="help-inline">(Format 08:29am)</span>
                         </div>
                         <label class="control-label">Description:</label>
                         <div class="controls">
-                            <textarea rows="3" id="mdescription<?php echo ($i+1); ?>" name="mdescription<?php echo ($i+1); ?>"><?php echo (isset($datamilestones[$i]['mdescription']))? $datamilestones[$i]['mdescription']:""; ?></textarea>
+                            <textarea rows="3" class="input-xlarge" id="mdescription<?php echo ($i+1); ?>" name="mdescription<?php echo ($i+1); ?>"><?php echo (isset($datamilestones[$i]['mdescription']))? $datamilestones[$i]['mdescription']:""; ?></textarea>
                         </div>
                     </div>
                 </div>
